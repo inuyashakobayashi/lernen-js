@@ -1,0 +1,120 @@
+#+title: My JavaScript Learning Journey
+#+author: zijian ying
+#+PROPERTY: header-args:js :results output
+
+* Type Conversions
+这里是我关于类型转换的笔记。
+
+#+BEGIN_SRC js
+let value = true;
+console.log(typeof value);
+value = String(value);
+console.log(typeof value);
+#+END_SRC
+
+#+RESULTS:
+: boolean
+: string
+: undefined
+
+* Math Operations
+关于数学运算的学习，比如一元运算符。
+
+#+BEGIN_SRC js
+let x = 1;
+x = -x;
+console.log( x );
+#+END_SRC
+
+#+RESULTS:
+: -1
+: undefined
+
+#+begin_src js
+
+console.log( 5 % 2 ); // 1, the remainder of 5 divided by 2
+console.log( 8 % 3 ); // 2, the remainder of 8 divided by 3
+console.log( 8 % 4 ); // 0, the remainder of 8 divided by 4
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 0
+: undefined
+
+#+begin_src js
+
+console.log( 2 ** 2 ); // 2² = 4
+console.log( 2 ** 3 ); // 2³ = 8
+console.log( 2 ** 4 ); // 2⁴ = 16
+#+end_src
+
+#+RESULTS:
+: 4
+: 8
+: 16
+: undefined
+
+#+begin_src js
+console.log( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
+console.log( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
+
+#+end_src
+
+#+RESULTS:
+: 2
+: 2
+: undefined
+
+#+begin_src js
+let s = "my" + "string";
+console.log(s); // mystring
+
+#+end_src
+
+#+RESULTS:
+: mystring
+: undefined
+
+#+begin_src js
+// No effect on numbers
+let x = 1;
+console.log( +x ); // 1
+
+let y = -2;
+console.log( +y ); // -2
+
+// Converts non-numbers
+console.log( +true ); // 1
+console.log( +"" );   // 0
+
+#+end_src
+
+#+RESULTS:
+: 1
+: -2
+: 1
+: 0
+: undefined
+
+#+begin_src js
+let apples = "2";
+let oranges = "3";
+
+// both values converted to numbers before the binary plus
+console.log( +apples + +oranges ); // 5
+
+// the longer variant
+// alert( Number(apples) + Number(oranges) ); // 5
+
+#+end_src
+
+#+RESULTS:
+: 5
+: undefined
+
+#+begin_src js
+
+
+#+end_src
