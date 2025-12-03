@@ -113,8 +113,169 @@ console.log( +apples + +oranges ); // 5
 #+RESULTS:
 : 5
 : undefined
-
+** task the postix and prefix form -What are the final values of all variables a, b, c and d after the code below?
 #+begin_src js
 
+let a = 1, b = 1;
+
+let c = ++a; // ?
+let d = b++; // ?
+console.log(c)
+console.log(a)
+console.log(b)
+console.log(d)
+#+end_src
+
+#+RESULTS:
+: 2
+: 2
+: 2
+: 1
+: undefined
+** assignment resultk -What are the values of a and x after the code below?
+#+begin_src js
+let a = 2;
+
+let x = 1 + (a *= 2);
+
+console.log(x)
+console.log(a)
+#+end_src
+
+#+RESULTS:
+: 5
+: 4
+: undefined
+** types conversions -What are results of these expressions?
+#+begin_src js
+console.log("" + 1 + 0)
+console.log("" - 1 + 0)
+console.log(true + false)
+console.log(6 / "3")
+console.log("2" * "3")
+console.log(4 + 5 + "px")
+console.log("$" + 4 + 5)
+console.log("4" - 2)
+console.log("4px" - 2)
+console.log("  -9  " + 5)
+console.log("  -9  " - 5)
+console.log(null + 1)
+console.log(undefined + 1)
+console.log(" \t \n" - 2)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+10
+-1
+1
+2
+6
+9px
+$45
+2
+NaN
+  -9  5
+-14
+1
+NaN
+-2
+undefined
+#+end_example
+
+** fix the addition
+#+begin_src js
+let a = 1
+let b = 2
+
+console.log(a + b); // 12
 
 #+end_src
+
+#+RESULTS:
+: 3
+: undefined
+
+* comparisons
+#+begin_src js
+console.log( 2 > 1 );  // true (correct))
+console.log( 2 == 1 ); // false (wrong))
+console.log( 2 != 1 ); // true (correct))
+
+#+end_src
+
+#+RESULTS:
+: true
+: false
+: true
+: undefined
+
+** task
+#+begin_src js
+console.log(5 > 4)
+console.log("apple" > "pineapple")
+console.log("2" > "12")
+console.log(undefined == null)
+console.log(undefined === null)
+console.log(null == "\n0\n")
+console.log(null === +"\n0\n")
+
+#+end_src
+
+#+RESULTS:
+: true
+: false
+: true
+: true
+: false
+: false
+: false
+
+* condintional branching if and ?
+
+** task
+#+begin_src js
+if ("0") {
+console.log( 'Hello' );
+}
+
+#+end_src
+
+#+RESULTS:
+: Hello
+: undefined
+
+#+begin_src js
+let cond = ""
+if(cond == "ECMAScript"){
+console.log("RIGHT")
+}else{
+console.log("you dont konw , EMCAScript")
+}
+#+end_src
+
+#+RESULTS:
+: you dont konw , EMCAScript
+: undefined
+
+#+begin_src js
+let result;
+
+let result = a+b <4 ? 'Below':'Over'
+console.log(result)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src js
+let login = 'jj'
+let message;
+
+
+message = (login == 'Employee') ? 'Hello':(login == 'Director') ? 'Greetings' : (login == '') ? 'No login' : ''
+console.log(message)
+#+end_src
+
+#+RESULTS:
+:
+: undefined
