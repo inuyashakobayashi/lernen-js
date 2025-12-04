@@ -15,7 +15,6 @@ console.log(typeof value);
 #+RESULTS:
 : boolean
 : string
-: undefined
 
 * Math Operations
 关于数学运算的学习，比如一元运算符。
@@ -28,7 +27,6 @@ console.log( x );
 
 #+RESULTS:
 : -1
-: undefined
 
 #+begin_src js
 
@@ -41,7 +39,6 @@ console.log( 8 % 4 ); // 0, the remainder of 8 divided by 4
 : 1
 : 2
 : 0
-: undefined
 
 #+begin_src js
 
@@ -54,7 +51,6 @@ console.log( 2 ** 4 ); // 2⁴ = 16
 : 4
 : 8
 : 16
-: undefined
 
 #+begin_src js
 console.log( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
@@ -65,7 +61,6 @@ console.log( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
 #+RESULTS:
 : 2
 : 2
-: undefined
 
 #+begin_src js
 let s = "my" + "string";
@@ -75,7 +70,6 @@ console.log(s); // mystring
 
 #+RESULTS:
 : mystring
-: undefined
 
 #+begin_src js
 // No effect on numbers
@@ -96,7 +90,6 @@ console.log( +"" );   // 0
 : -2
 : 1
 : 0
-: undefined
 
 #+begin_src js
 let apples = "2";
@@ -112,7 +105,6 @@ console.log( +apples + +oranges ); // 5
 
 #+RESULTS:
 : 5
-: undefined
 ** task the postix and prefix form -What are the final values of all variables a, b, c and d after the code below?
 #+begin_src js
 
@@ -131,7 +123,6 @@ console.log(d)
 : 2
 : 2
 : 1
-: undefined
 ** assignment resultk -What are the values of a and x after the code below?
 #+begin_src js
 let a = 2;
@@ -145,7 +136,6 @@ console.log(a)
 #+RESULTS:
 : 5
 : 4
-: undefined
 ** types conversions -What are results of these expressions?
 #+begin_src js
 console.log("" + 1 + 0)
@@ -180,7 +170,6 @@ NaN
 1
 NaN
 -2
-undefined
 #+end_example
 
 ** fix the addition
@@ -194,7 +183,6 @@ console.log(a + b); // 12
 
 #+RESULTS:
 : 3
-: undefined
 
 * comparisons
 #+begin_src js
@@ -208,7 +196,6 @@ console.log( 2 != 1 ); // true (correct))
 : true
 : false
 : true
-: undefined
 
 ** task
 #+begin_src js
@@ -243,7 +230,6 @@ console.log( 'Hello' );
 
 #+RESULTS:
 : Hello
-: undefined
 
 #+begin_src js
 let cond = ""
@@ -256,15 +242,16 @@ console.log("you dont konw , EMCAScript")
 
 #+RESULTS:
 : you dont konw , EMCAScript
-: undefined
 
 #+begin_src js
-
+let a = 4
+let b = 1
 let result = a+b <4 ? 'Below':'Over'
 console.log(result)
 #+end_src
 
 #+RESULTS:
+: Over
 
 #+begin_src js
 let login = 'jj'
@@ -294,3 +281,549 @@ for (let i = 0; i < 10; i++) {
 : 5
 : 7
 : 9
+
+#+begin_src js
+let i = 3;
+
+while (i) {
+  console.log( i-- );
+}
+
+
+
+#+end_src
+
+#+RESULTS:
+: 3
+: 2
+: 1
+
+#+begin_src js
+let i = 0;
+while (++i < 5) console.log( i );
+
+let j = 0;
+while (j++ < 5) console.log( j );
+
+#+end_src
+
+#+RESULTS:
+: 1
+: 2
+: 3
+: 4
+: 1
+: 2
+: 3
+: 4
+: 5
+
+#+begin_src js
+for(let i = 2; i <= 10 ; i++){
+let flag = (i % 2 == 0)
+    if(flag){
+        console.log(i)
+   }
+}
+
+#+end_src
+
+#+RESULTS:
+: 2
+: 4
+: 6
+: 8
+: 10
+
+#+begin_src js
+for (let i = 0; i < 3; i++) {
+  console.log( `number ${i}!` );
+}
+
+#+end_src
+
+#+RESULTS:
+: number 0!
+: number 1!
+: number 2!
+
+#+begin_src js
+// An integer number greater than 1 is called a prime if it cannot be divided without a remainder by anything except 1 and itself.
+
+// In other words, n > 1 is a prime if it can’t be evenly divided by anything except 1 and n.
+
+// For example, 5 is a prime, because it cannot be divided without a remainder by 2, 3 and 4.
+
+// Write the code which outputs prime numbers in the interval from 2 to n.
+
+// For n = 10 the result will be 2,3,5,7.
+
+// P.S. The code should work for any n, not be hard-tuned for any fixed value.
+let n = 10
+for(let i = 2; i <= n ; i++){
+    let flag = true
+    for(let j = 2 ; j < i ; j++){
+        if(i % j == 0){
+            flag = false
+        }
+    }
+    if(flag == true) console.log(i)
+}
+#+end_src
+
+#+RESULTS:
+: 2
+: 3
+: 5
+: 7
+* the switch statement
+
+** task
+#+begin_src js
+let a = 2 + 2;
+
+switch (a) {
+  case 3:
+    console.log( 'Too small' );
+  case 4:
+    console.log( 'Exactly!' );
+  case 5:
+    console.log( 'Too big' );
+  default:
+    console.log( "I don't know such values" );
+}
+
+#+end_src
+
+#+RESULTS:
+: Exactly!
+: Too big
+: I don't know such values
+
+* functions
+** task
+#+begin_src js
+
+function showMessage() {
+  console.log( 'Hello everyone!' );
+}
+showMessage()
+#+end_src
+
+#+RESULTS:
+: Hello everyone!
+#+begin_src js
+let userName = 'John';
+
+function showMessage() {
+  userName = "Bob"; // (1) changed the outer variable
+
+  let message = 'Hello, ' + userName;
+  console.log(message);
+}
+
+console.log( userName ); // John before the function call
+
+showMessage();
+
+console.log( userName ); // Bob, the value was modified by the function
+
+#+end_src
+
+#+RESULTS:
+: John
+: Hello, Bob
+: Bob
+
+#+begin_src js
+let userName = 'John';
+
+function showMessage() {
+  let userName = "Bob"; // declare a local variable
+
+  let message = 'Hello, ' + userName; // Bob
+  console.log(message);
+}
+
+// the function will create and use its own userName
+showMessage();
+
+console.log( userName ); // John, unchanged, the function did not access the outer variable
+
+
+#+end_src
+
+#+RESULTS:
+: Hello, Bob
+: John
+
+#+begin_src js
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Did parents allow you?');
+//   }
+// }
+// function checkAge(age) {
+//     // 逻辑：如果 (age > 18) 为真，返回 true；否则返回 confirm(...) 的结果
+//     return (age > 18) ? true : confirm('Did parents allow you?');
+// }
+function checkAge(age){
+    return (age > 18) || confirm('Did parents allow you?')
+    }
+console.log(checkAge(99)
+)
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src js
+function min(a,b){
+    let result = (a < b) ? a: b
+    return result
+}
+console.log(min(1,2))
+
+console.log(min(1,3))
+console.log(min(2,8))
+console.log(min(9,2))
+#+end_src
+
+#+RESULTS:
+: 1
+: 1
+: 2
+: 2
+
+#+begin_src js
+function pow(base,exp){
+    let res = 1
+   for(i = 0 ; i < exp ; i++){
+      res *=base
+   }
+    return res
+}
+console.log(pow(2,3))
+
+console.log(pow(5,3))
+console.log(pow(6,3))
+console.log(pow(8,3))
+
+
+
+#+end_src
+
+#+RESULTS:
+: 8
+: 125
+: 216
+: 512
+* function experssion
+#+begin_src js
+function sayHi() {   // (1) create
+  console.log( "Hello" );
+}
+
+let func = sayHi;    // (2) copy
+
+func(); // Hello     // (3) run the copy (it works)!
+sayHi();
+
+
+#+end_src
+
+#+RESULTS:
+: Hello
+: Hello
+
+
+* arrow functions , the basic
+** task
+#+begin_src js
+
+// Node/Bun 专用测试版
+let ask = (question, yes, no) => {
+    // 模拟 confirm，这里手动写死 true 或 false 来测试
+    let result = true; // 假装用户点了确定
+    result ? yes() : no();
+}
+
+ask(
+  "Do you agree?",
+  () => console.log("You agreed."),
+  () => console.log("You canceled.")
+);
+#+end_src
+
+#+RESULTS:
+: You agreed.
+* javascript special
+** task
+* object
+** task
+#+begin_src js
+function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,
+    // ...other properties
+  };
+}
+
+let user = makeUser("John", 30);
+console.log(user.name); // John
+
+#+end_src
+
+#+RESULTS:
+: John
+#+begin_src js
+let obj = {};
+obj.__proto__ = 5; // assign a number
+console.log(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
+
+#+end_src
+
+#+RESULTS:
+: [Object: null prototype] {}
+
+#+begin_src js
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // keys
+  console.log( key );  // name, age, isAdmin
+  // values for the keys
+  console.log( user[key] ); // John, 30, true
+}
+
+#+end_src
+
+#+RESULTS:
+: name
+: John
+: age
+: 30
+: isAdmin
+: true
+#+begin_src js
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  // ..,
+  "1": "USA"
+};
+
+for (let code in codes) {
+  console.log(code); // 1, 41, 44, 49
+}
+
+#+end_src
+
+#+RESULTS:
+: 1
+: 41
+: 44
+: 49
+
+#+begin_src js
+// Number(...) explicitly converts to a number
+// Math.trunc is a built-in function that removes the decimal part
+console.log( String(Math.trunc(Number("49"))) ); // "49", same, integer property
+console.log( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
+console.log( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+
+#+end_src
+
+#+RESULTS:
+: 49
+: 49
+: 1
+
+#+begin_src js
+/**
+ ,* Write the code, one line for each action:
+
+    Create an empty object user.
+    Add the property name with the value John.
+    Add the property surname with the value Smith.
+    Change the value of the name to Pete.
+
+    Remove the property name from the object.
+
+
+ ,*/
+let obj = {}
+obj.name = "John"
+obj.surname = "Smith"
+obj.name = "Pete"
+delete obj.name
+for(let ob in obj){
+    console.log(obj[ob])
+}
+
+#+end_src
+
+
+#+RESULTS:
+: Smith
+
+#+begin_src js
+// Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
+
+
+let isEmpty = (obj) => {
+    for(let ob in obj){
+        return false
+    }
+    return true
+}
+let schedule = {};
+
+console.log( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+console.log( isEmpty(schedule) ); // false
+
+#+end_src
+
+#+RESULTS:
+: true
+: false
+
+#+begin_src js
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+let sum = 0
+for(let sal in salaries){
+    sum += salaries[sal]
+    }
+console.log(sum)
+#+end_src
+
+#+RESULTS:
+: 390
+#+begin_src js
+//Create a function multiplyNumeric(obj) that multiplies all numeric property values of obj by 2. before the call
+let multiplyNumeric = (obj) =>{
+    for(let pro in obj){
+        if(typeof obj[pro] == "number"){
+            obj[pro] *=2
+        }
+    }
+}
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+let prt = (obj) => {
+    Object.keys(obj).forEach(key => {
+        console.log(`${key}: ${obj[key]}`);
+    });
+}
+prt(menu)
+multiplyNumeric(menu);
+
+prt(menu)
+// after the call
+menu = {
+  width: 400,
+  height: 600,
+  title: "My menu"
+};
+
+#+end_src
+
+#+RESULTS:
+: width: 200
+: height: 300
+: title: My menu
+: width: 400
+: height: 600
+: title: My menu
+* object refenrence and copying
+** task
+#+begin_src js
+
+function makeUser() {
+  return {
+    name: "John",
+    ref: this
+  };
+}
+
+let user = makeUser();
+
+console.log( user.ref.name ); // What's the result?
+
+
+#+end_src
+
+#+RESULTS:
+: undefined
+
+#+begin_src js
+let calculator = (a,b) =>{
+  // ... your code ...
+    return {
+
+    read(Newa,Newb){
+        a = Newa,
+        b = Newb
+    },
+    sum(){
+        return a+b
+    },
+    mul(){
+        return a*b
+        },
+    }
+};
+let calc = calculator(0,0)
+calc.read(1,2);
+console.log( calc.sum() );
+console.log( calc.mul() );
+
+#+end_src
+
+#+RESULTS:
+: 3
+: 2
+
+#+begin_src js
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+      return this
+  },
+  down() {
+    this.step--;
+     return this
+  },
+  showStep: function() { // shows the current step
+    console.log( this.step );
+     return this
+  }
+};
+ladder.showStep().up().down().up().up().up().up().up().up().up().up().showStep()
+#+end_src
+
+#+RESULTS:
+: 0
+: 8
+
+* constructor and operator new
+** task
