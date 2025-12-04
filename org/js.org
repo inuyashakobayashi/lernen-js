@@ -259,7 +259,6 @@ console.log("you dont konw , EMCAScript")
 : undefined
 
 #+begin_src js
-let result;
 
 let result = a+b <4 ? 'Below':'Over'
 console.log(result)
@@ -278,4 +277,20 @@ console.log(message)
 
 #+RESULTS:
 :
-: undefined
+#+begin_src js
+for (let i = 0; i < 10; i++) {
+
+  // if true, skip the remaining part of the body
+  if (i % 2 == 0) continue;
+
+  console.log(i); // 1, then 3, 5, 7, 9
+}
+
+#+end_src
+
+#+RESULTS:
+: 1
+: 3
+: 5
+: 7
+: 9
