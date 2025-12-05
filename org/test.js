@@ -1,6 +1,11 @@
-console.log("ddddö")
-let value = true
-console.log( typeof value )
+function* generator() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
 
-let value2 =String(value )
-console.log(typeof value2)
+const gen = generator(); // "Generator { }"
+
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+console.log(gen.next().value); // 3
