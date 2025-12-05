@@ -916,3 +916,622 @@ console.log(appleStore.next()); // { value: undefined, done: true }
 : { value: 7, done: false }
 : { value: 5, done: false }
 : { value: undefined, done: true }
+#+begin_src js
+/**
+ ,* @param {number[]} arr
+ ,* @param {Function} fn
+ ,* @return {number[]}
+ ,*/
+var filter = function(arr, fn) {
+let filteredArr = []
+let counter = 0
+    for(let i of arr){
+
+        if(fn(i,counter++)) filteredArr.push(i)
+    }
+    return filteredArr
+};
+#+end_src
+
+#+RESULTS:
+
+#+begin_src js
+function User(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
+
+let user = new User("Jack");
+
+console.log(user.name); // Jack
+console.log(user.isAdmin); // false
+#+end_src
+
+#+RESULTS:
+: Jack
+: false
+
+#+begin_src js
+function BigUser() {
+
+  this.name = "John";
+
+  return { name: "Godzilla" };  // <-- returns this object
+}
+
+console.log( new BigUser().name );  // Godzilla, got that object
+#+end_src
+
+#+RESULTS:
+: Godzilla
+#+begin_src js
+function Calculator(){
+   this.read=function(Newa,Newb){
+       this.a = Newa;
+       this.b = Newb;
+   };
+    this.sum = function(){
+        return this.a+this.b
+    };
+    this.mul = function(){
+        return this.a*this.b
+    };
+}
+let calculator = new Calculator();
+calculator.read(1,2);
+console.log( "Sum=" + calculator.sum() );
+console.log( "Mul=" + calculator.mul() );
+#+end_src
+
+#+RESULTS:
+: Sum=3
+: Mul=2
+
+#+begin_src js
+function Accumulator(Initvalue){
+    this.StartingValue = Initvalue
+    this.value = Initvalue
+    this.read = function(input){
+        this.value += input
+    }
+}
+let accumulator = new Accumulator(1); // initial value 1
+
+accumulator.read(3); // adds the user-entered value
+accumulator.read(8); // adds the user-entered value
+
+console.log(accumulator.value); // shows the sum of these values
+#+end_src
+
+#+RESULTS:
+: 12
+
+* optional chaining ?.
+** task
+#+begin_src js
+let id = Symbol("id");
+let is = "id"
+console.log(id); // TypeError: Cannot convert a Symbol value to a string
+
+console.log(is); // TypeError: Cannot convert a Symbol value to a string
+#+end_src
+
+#+RESULTS:
+: Symbol(id)
+: id
+#+begin_src js
+let id = Symbol("id");
+let user = {
+  name: "John",
+  age: 30,
+  [id]: 123
+};
+
+for (let key in user) console.log(key); // name, age (no symbols)
+
+// the direct access by the symbol works
+// console.log( "Direct: " + user[id] ); // Direct: 123
+#+end_src
+
+#+RESULTS:
+: name
+: age
+* Object to primitive conversion
+** task
+#+begin_src js
+
+let str = "Hello";
+
+str.test = 5;
+
+console.log(str.test);
+#+end_src
+
+#+RESULTS:
+: undefined
+* Numbers
+** task
+#+begin_src js
+
+let billion = 1e9;  // 1 billion, literally: 1 and 9 zeroes
+
+console.log( 7.3e9 );  // 7.3 billions (same as 7300000000 or 7_300_000_000)
+// -3 divides by 1 with 3 zeroes
+console.log(1e-3 === 1 / 1000); // 0.001
+
+// -6 divides by 1 with 6 zeroes
+console.log(1.23e-6 === 1.23 / 1000000); // 0.00000123
+console.log(1234..toString(2));
+// an example with a bigger number
+console.log(1234e-2 === 1234 / 100); // 12.34, decimal point moves 2 times
+
+console.log(Math.trunc(2.3));
+console.log(0.1.toString(2)); // 0.0001100110011001100110011001100110011001100110011001101
+console.log(0.2.toString(2)); // 0.001100110011001100110011001100110011001100110011001101
+console.log((0.1 + 0.2).toString(2)); // 0.0100110011001100110011001100110011001100110011001101
+
+console.log((0.1 + 0.3+ 0.1).toString(2)); // 0.0100110011001100110011001100110011001100110011001101
+#+end_src
+
+
+#+RESULTS:
+#+begin_example
+7300000000
+true
+true
+10011010010
+true
+2
+0.0001100110011001100110011001100110011001100110011001101
+0.001100110011001100110011001100110011001100110011001101
+0.0100110011001100110011001100110011001100110011001101
+0.1
+#+end_example
+
+
+
+#+begin_src js
+let a = Math.random(1)
+console.log(a)
+#+end_src
+
+#+RESULTS:
+: 0.857440850338862
+
+#+begin_src js
+function sum(num1,num2){
+   return num1 + num2
+}
+console.log(sum(1,3))
+console.log( 6.35.toFixed(1) ); // 6.3
+let i = 0;
+while (i < 11) {
+  i += 0.2;
+  if (i > 9.8 && i < 10.2) console.log( i );
+}
+#+end_src
+
+#+RESULTS:
+: 4
+: 6.3
+: 9.999999999999996
+: 10.199999999999996
+* string
+** task
+#+begin_src js
+
+let guestList = `Guests:
+ * John
+ * Pete
+ * Mary
+`;
+
+console.log(guestList); // a list of guests, multiple lines
+#+end_src
+
+#+RESULTS:
+: Guests:
+:  * John
+:  * Pete
+:  * Mary
+:
+
+#+begin_src js
+for (let char of "Hello") {
+  console.log(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+}
+let str = 'Widget with id';
+
+console.log( str.indexOf('Widget') ); // 0, because 'Widget' is found at the beginning
+console.log( str.indexOf('widget') ); // -1, not found, the search is case-sensitive
+
+console.log( str.indexOf("id") ); // 1, "id" is found at the position 1 (..idget with id)
+#+end_src
+
+#+RESULTS:
+: H
+: e
+: l
+: l
+: o
+: 0
+: -1
+: 1
+
+#+begin_src js
+function truncate(str,maxLength){
+    if(str.length <= maxLength){
+        return str
+    }
+    return str.substr(0,maxLength -1) + "..."
+}
+console.log(truncate("What I'd like to tell on this topic is:", 20) )
+console.log(truncate("Hi everyone!", 20))
+#+end_src
+
+#+RESULTS:
+: What I'd like to te...
+: Hi everyone!
+#+begin_src js
+ function extractCurrencyValue(str){
+     return relStr = +str.substr(1,str.length - 1)
+ }
+console.log(extractCurrencyValue("$120")===120)
+#+end_src
+
+#+RESULTS:
+: true
+
+#+begin_src js
+ function checkSpam(str){
+     if(str.toUpperCase().indexOf("XXX") !== -1 || (str.toLowerCase().indexOf("viagra")) !== -1){
+         return true
+     }return false
+ }
+console.log(checkSpam('buy ViAgRA now') )
+console.log(checkSpam('free xxxxx')  )
+console.log(checkSpam("innocent rabbit") )
+#+end_src
+
+#+RESULTS:
+: true
+: true
+: false
+
+#+begin_src js
+function ucFirst(str){
+    return    str.slice(0,1).toUpperCase() + str.slice(1)
+}
+
+console.log(ucFirst("john") == "John")
+#+end_src
+
+#+RESULTS:
+: true
+
+* Array
+** task
+#+begin_src js
+
+// 设定一个稍微大一点的数量级，让差距肉眼可见
+const COUNT = 100000;
+
+// 创建两个一样的巨大数组
+const arrForShift = new Array(COUNT).fill(1);
+const arrForPop = new Array(COUNT).fill(1);
+
+console.log(`=== 开始测试: 操作 ${COUNT} 个元素 ===`);
+
+// 1. 测试 Shift (从头部删除)
+console.time('Shift 耗时');
+while (arrForShift.length > 0) {
+    arrForShift.shift();
+}
+console.timeEnd('Shift 耗时');
+
+// 2. 测试 Pop (从尾部删除)
+console.time('Pop  耗时');
+while (arrForPop.length > 0) {
+    arrForPop.pop();
+}
+console.timeEnd('Pop  耗时');
+#+end_src
+
+#+RESULTS:
+: === 开始测试: 操作 100000 个元素 ===
+: Shift 耗时: 355.148ms
+: Pop  耗时: 0.711ms
+
+#+begin_src js
+let fruits = ["Apples", "Pear", "Orange"];
+
+// push a new value into the "copy"
+let shoppingCart = fruits;
+shoppingCart.push("Banana");
+
+// what's in fruits?
+console.log( fruits.length ); // ?
+
+
+
+#+end_src
+
+#+RESULTS:
+: 4
+: 3
+
+
+#+begin_src js
+
+let style = ["Jazz","blue"]
+console.log(style)
+style.push("Rock-n-Roll")
+console.log(style)
+style[(style.length-1)/2] = "Classics"
+console.log(style)
+console.log(style.shift())
+console.log(style)
+style.unshift("Rag","Reggae")
+console.log(style)
+
+#+end_src
+
+#+RESULTS:
+: [ 'Jazz', 'blue' ]
+: [ 'Jazz', 'blue', 'Rock-n-Roll' ]
+: [ 'Jazz', 'Classics', 'Rock-n-Roll' ]
+: Jazz
+: [ 'Classics', 'Rock-n-Roll' ]
+: [ 'Rag', 'Reggae', 'Classics', 'Rock-n-Roll' ]
+
+#+begin_src js
+let arr = ["a", "b"];
+
+arr.push(function() {
+  console.log( this );
+});
+
+
+arr[2](); // ?
+
+
+#+end_src
+
+#+RESULTS:
+: [ 'a', 'b', [Function (anonymous)] ]
+
+#+begin_src js
+
+let arr = [1, -2, 3, 4, -9, 6]
+function getMaxSubSum(arr){
+    let max = arr[0]
+    let relstr = []
+    let range = arr.length -1
+    for(let i = 0; i <= range ;i++){
+    let acc = 0
+        for(let j = i ; j <= range ; j++){
+            acc += arr[j]
+            // max = (max > acc) ? max:acc
+           if(max <= acc){
+              max = acc
+              relstr = arr.slice(i,j+1)
+           }
+        }
+    }
+    return relstr
+}
+// console.log(getMaxSubSum(arr))
+// getMaxSubSum([-1, 2, 3, -9]) == 5 (the sum of highlighted items)
+// getMaxSubSum([2, -1, 2, 3, -9]) == 6
+// getMaxSubSum([-1, 2, 3, -9, 11]) == 11
+// getMaxSubSum([-2, -1, 1, 2]) == 3
+// getMaxSubSum([100, -9, 2, -3, 5]) == 100
+// getMaxSubSum([1, 2, 3]) == 6 (take all)
+console.log(getMaxSubSum([-1, 2, 3, -9]))
+console.log(getMaxSubSum([2, -1, 2, 3, -9]))
+console.log(getMaxSubSum([-1, 2, 3, -9, 11]))
+console.log(getMaxSubSum([-2, -1, 1, 2]))
+console.log(getMaxSubSum([100, -9, 2, -3, 5]))
+console.log(getMaxSubSum([1, 2, 3]))
+#+end_src
+
+#+RESULTS:
+: [ 2, 3 ]
+: [ 2, -1, 2, 3 ]
+: [ 11 ]
+: [ 1, 2 ]
+: [ 100 ]
+: [ 1, 2, 3 ]
+
+#+begin_src js
+/**
+ * @param {number[]} nums
+ * @return {void}
+ */
+var ArrayWrapper = function(nums) {
+    // 1. 构造函数：把传进来的 nums 存到当前实例(this)上
+    this.nums = nums;
+};
+
+/**
+ * @return {number}
+ */
+ArrayWrapper.prototype.valueOf = function() {
+    // 2. 求和逻辑：当发生 obj1 + obj2 时调用
+    // 使用 reduce 把数组里的数加起来
+    // 如果数组是空的，返回 0
+    return this.nums.reduce((sum, num) => sum + num, 0);
+}
+
+/**
+ * @return {string}
+ */
+ArrayWrapper.prototype.toString = function() {
+    // 3. 转字符串逻辑：当 String(obj) 时调用
+    // 偷懒做法：直接用 JSON.stringify，它会自动把 [1,2] 变成字符串 "[1,2]"
+    return JSON.stringify(this.nums);
+}
+
+/**
+ * 测试一下：
+ */
+const obj1 = new ArrayWrapper([1,2]);
+const obj2 = new ArrayWrapper([3,4]);
+
+console.log(obj1 + obj2); // 自动调 valueOf -> 3 + 7 = 10
+console.log(String(obj1)); // 自动调 toString -> "[1,2]"
+#+end_src
+
+#+RESULTS:
+: 10
+: [1,2]
+
+#+begin_src js
+class Calculator {
+
+    /**
+     ,* @param {number} value
+     ,*/
+    constructor(value) {
+        this.result = value
+        return this
+    }
+
+    /**
+     ,* @param {number} value
+     ,* @return {Calculator}
+     ,*/
+    add(value){
+       this.result += value
+
+        return this
+    }
+
+    /**
+     ,* @param {number} value
+     ,* @return {Calculator},*/
+    subtract(value){
+       this.result -= value
+
+        return this
+    }
+
+    /**
+     ,* @param {number} value
+     ,* @return {Calculator}
+     ,*/
+    multiply(value) {
+       this.result *= value
+
+        return this
+    }
+
+    /**
+     ,* @param {number} value
+     ,* @return {Calculator}
+     ,*/
+    divide(value) {
+        if(value == 0){
+            throw new Error("Division by zero is not allowed");
+        }
+       this.result /= value
+
+        return this
+    }
+
+    /**
+     ,* @param {number} value
+     ,* @return {Calculator}
+     ,*/
+    power(value) {
+       this.result =Math.pow(this.result,value)
+
+        return this
+    }
+
+    /**
+     ,* @return {number}
+     ,*/
+    getResult() {
+       return this.result
+    }
+}
+#+end_src
+#+begin_src js
+/**
+ ,* Definition for singly-linked list.
+ ,* function ListNode(val, next) {
+ ,*     this.val = (val===undefined ? 0 : val)
+ ,*     this.next = (next===undefined ? null : next)
+ ,* }
+ ,*/
+/**
+ ,* @param {ListNode} l1
+ ,* @param {ListNode} l2
+ ,* @return {ListNode}
+ ,*/
+function ListNode(val,next){
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+}
+// 2,4,3
+// 5,6,4
+const l1 = new ListNode(2);       // 头节点是 2
+l1.next = new ListNode(4);        // 2 后面连个 4
+l1.next.next = new ListNode(3);   // 4 后面连个 3
+
+// 3. 造 l2: [5, 6, 4]
+const l2 = new ListNode(5);
+l2.next = new ListNode(6);
+l2.next.next = new ListNode(4);
+
+var addTwoNumbers = function(l1, l2) {
+    // 1. 造一个假的头，方便后面挂节点
+    let dummy = new ListNode(0);
+    let current = dummy; // current 是个搬砖工，负责一直往后铺路
+    let carry = 0;       // 进位
+
+    // 2. 循环条件：只要 l1 还没走完，或者 l2 还没走完，或者 还有进位没处理
+    // 就可以一直循环 ( || 表示“或者”)
+    while (l1 !== null || l2 !== null || carry > 0) {
+
+        // === 第一步：取值 ===
+        // 如果 l1 还是个节点，就取它的值；如果是 null，就当成 0
+        let val1 = (l1 !== null) ? l1.val : 0;
+        let val2 = (l2 !== null) ? l2.val : 0;
+
+        // === 第二步：求和 ===
+        // sum = val1 + val2 + 之前的进位
+        let sum = val1 + val2 + carry;
+
+        // === 第三步：算新进位和当前位 ===
+        // 比如 sum 是 15。
+        // carry 应该是 1  (用 Math.floor(sum / 10))
+        // 当前位应该是 5  (用 sum % 10)
+        carry = Math.floor(sum / 10);
+        let digit = sum % 10;
+
+        // === 第四步：造新节点挂到 l3 后面 ===
+        current.next = new ListNode(digit);
+
+        // === 第五步：移动指针 ===
+        // current 必须往前走一步，站在刚造好的节点上，准备接下一个
+        current = current.next;
+
+        // l1 和 l2 也要往前走（前提是它们还没走到 null）
+        if (l1 !== null) l1 = l1.next;
+        if (l2 !== null) l2 = l2.next;
+    }
+
+    // 3. 返回假头后面的真链表
+    return dummy.next;
+};
+console.log(addTwoNumbers(l1,l2))
+
+#+end_src
+
+#+RESULTS:
+: ListNode {
+:   val: 7,
+:   next: ListNode { val: 0, next: ListNode { val: 8, next: null } }
+: }
