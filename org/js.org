@@ -165,7 +165,7 @@ console.log(" \t \n" - 2)
 $45
 2
 NaN
-  -9  5
+-9  5
 -14
 1
 NaN
@@ -267,10 +267,10 @@ console.log(message)
 #+begin_src js
 for (let i = 0; i < 10; i++) {
 
-  // if true, skip the remaining part of the body
-  if (i % 2 == 0) continue;
+// if true, skip the remaining part of the body
+if (i % 2 == 0) continue;
 
-  console.log(i); // 1, then 3, 5, 7, 9
+console.log(i); // 1, then 3, 5, 7, 9
 }
 
 #+end_src
@@ -286,7 +286,7 @@ for (let i = 0; i < 10; i++) {
 let i = 3;
 
 while (i) {
-  console.log( i-- );
+console.log( i-- );
 }
 
 
@@ -321,9 +321,9 @@ while (j++ < 5) console.log( j );
 #+begin_src js
 for(let i = 2; i <= 10 ; i++){
 let flag = (i % 2 == 0)
-    if(flag){
-        console.log(i)
-   }
+if(flag){
+    console.log(i)
+}
 }
 
 #+end_src
@@ -337,7 +337,7 @@ let flag = (i % 2 == 0)
 
 #+begin_src js
 for (let i = 0; i < 3; i++) {
-  console.log( `number ${i}!` );
+console.log( `number ${i}!` );
 }
 
 #+end_src
@@ -361,13 +361,13 @@ for (let i = 0; i < 3; i++) {
 // P.S. The code should work for any n, not be hard-tuned for any fixed value.
 let n = 10
 for(let i = 2; i <= n ; i++){
-    let flag = true
-    for(let j = 2 ; j < i ; j++){
-        if(i % j == 0){
-            flag = false
-        }
+let flag = true
+for(let j = 2 ; j < i ; j++){
+    if(i % j == 0){
+        flag = false
     }
-    if(flag == true) console.log(i)
+}
+if(flag == true) console.log(i)
 }
 #+end_src
 
@@ -383,14 +383,14 @@ for(let i = 2; i <= n ; i++){
 let a = 2 + 2;
 
 switch (a) {
-  case 3:
-    console.log( 'Too small' );
-  case 4:
-    console.log( 'Exactly!' );
-  case 5:
-    console.log( 'Too big' );
-  default:
-    console.log( "I don't know such values" );
+case 3:
+console.log( 'Too small' );
+case 4:
+console.log( 'Exactly!' );
+case 5:
+console.log( 'Too big' );
+default:
+console.log( "I don't know such values" );
 }
 
 #+end_src
@@ -405,7 +405,7 @@ switch (a) {
 #+begin_src js
 
 function showMessage() {
-  console.log( 'Hello everyone!' );
+console.log( 'Hello everyone!' );
 }
 showMessage()
 #+end_src
@@ -416,10 +416,10 @@ showMessage()
 let userName = 'John';
 
 function showMessage() {
-  userName = "Bob"; // (1) changed the outer variable
+userName = "Bob"; // (1) changed the outer variable
 
-  let message = 'Hello, ' + userName;
-  console.log(message);
+let message = 'Hello, ' + userName;
+console.log(message);
 }
 
 console.log( userName ); // John before the function call
@@ -439,10 +439,10 @@ console.log( userName ); // Bob, the value was modified by the function
 let userName = 'John';
 
 function showMessage() {
-  let userName = "Bob"; // declare a local variable
+let userName = "Bob"; // declare a local variable
 
-  let message = 'Hello, ' + userName; // Bob
-  console.log(message);
+let message = 'Hello, ' + userName; // Bob
+console.log(message);
 }
 
 // the function will create and use its own userName
@@ -470,8 +470,8 @@ console.log( userName ); // John, unchanged, the function did not access the out
 //     return (age > 18) ? true : confirm('Did parents allow you?');
 // }
 function checkAge(age){
-    return (age > 18) || confirm('Did parents allow you?')
-    }
+return (age > 18) || confirm('Did parents allow you?')
+}
 console.log(checkAge(99)
 )
 #+end_src
@@ -481,8 +481,8 @@ console.log(checkAge(99)
 
 #+begin_src js
 function min(a,b){
-    let result = (a < b) ? a: b
-    return result
+let result = (a < b) ? a: b
+return result
 }
 console.log(min(1,2))
 
@@ -499,11 +499,11 @@ console.log(min(9,2))
 
 #+begin_src js
 function pow(base,exp){
-    let res = 1
-   for(i = 0 ; i < exp ; i++){
-      res *=base
-   }
-    return res
+let res = 1
+for(i = 0 ; i < exp ; i++){
+    res *=base
+}
+return res
 }
 console.log(pow(2,3))
 
@@ -523,7 +523,7 @@ console.log(pow(8,3))
 * function experssion
 #+begin_src js
 function sayHi() {   // (1) create
-  console.log( "Hello" );
+console.log( "Hello" );
 }
 
 let func = sayHi;    // (2) copy
@@ -545,15 +545,15 @@ sayHi();
 
 // Node/Bun 专用测试版
 let ask = (question, yes, no) => {
-    // 模拟 confirm，这里手动写死 true 或 false 来测试
-    let result = true; // 假装用户点了确定
-    result ? yes() : no();
+// 模拟 confirm，这里手动写死 true 或 false 来测试
+let result = true; // 假装用户点了确定
+result ? yes() : no();
 }
 
 ask(
-  "Do you agree?",
-  () => console.log("You agreed."),
-  () => console.log("You canceled.")
+"Do you agree?",
+() => console.log("You agreed."),
+() => console.log("You canceled.")
 );
 #+end_src
 
@@ -565,11 +565,11 @@ ask(
 ** task
 #+begin_src js
 function makeUser(name, age) {
-  return {
-    name: name,
-    age: age,
-    // ...other properties
-  };
+return {
+name: name,
+age: age,
+// ...other properties
+};
 }
 
 let user = makeUser("John", 30);
@@ -591,16 +591,16 @@ console.log(obj.__proto__); // [object Object] - the value is an object, didn't 
 
 #+begin_src js
 let user = {
-  name: "John",
-  age: 30,
-  isAdmin: true
+name: "John",
+age: 30,
+isAdmin: true
 };
 
 for (let key in user) {
-  // keys
-  console.log( key );  // name, age, isAdmin
-  // values for the keys
-  console.log( user[key] ); // John, 30, true
+// keys
+console.log( key );  // name, age, isAdmin
+// values for the keys
+console.log( user[key] ); // John, 30, true
 }
 
 #+end_src
@@ -614,15 +614,15 @@ for (let key in user) {
 : true
 #+begin_src js
 let codes = {
-  "49": "Germany",
-  "41": "Switzerland",
-  "44": "Great Britain",
-  // ..,
-  "1": "USA"
+"49": "Germany",
+"41": "Switzerland",
+"44": "Great Britain",
+// ..,
+"1": "USA"
 };
 
 for (let code in codes) {
-  console.log(code); // 1, 41, 44, 49
+console.log(code); // 1, 41, 44, 49
 }
 
 #+end_src
@@ -649,24 +649,24 @@ console.log( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not
 
 #+begin_src js
 /**
- ,* Write the code, one line for each action:
+,* Write the code, one line for each action:
 
-    Create an empty object user.
-    Add the property name with the value John.
-    Add the property surname with the value Smith.
-    Change the value of the name to Pete.
+Create an empty object user.
+Add the property name with the value John.
+Add the property surname with the value Smith.
+Change the value of the name to Pete.
 
-    Remove the property name from the object.
+Remove the property name from the object.
 
 
- ,*/
+,*/
 let obj = {}
 obj.name = "John"
 obj.surname = "Smith"
 obj.name = "Pete"
 delete obj.name
 for(let ob in obj){
-    console.log(obj[ob])
+console.log(obj[ob])
 }
 
 #+end_src
@@ -680,10 +680,10 @@ for(let ob in obj){
 
 
 let isEmpty = (obj) => {
-    for(let ob in obj){
-        return false
-    }
-    return true
+for(let ob in obj){
+    return false
+}
+return true
 }
 let schedule = {};
 
@@ -701,14 +701,14 @@ console.log( isEmpty(schedule) ); // false
 
 #+begin_src js
 let salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130
+John: 100,
+Ann: 160,
+Pete: 130
 }
 let sum = 0
 for(let sal in salaries){
-    sum += salaries[sal]
-    }
+sum += salaries[sal]
+}
 console.log(sum)
 #+end_src
 
@@ -717,21 +717,21 @@ console.log(sum)
 #+begin_src js
 //Create a function multiplyNumeric(obj) that multiplies all numeric property values of obj by 2. before the call
 let multiplyNumeric = (obj) =>{
-    for(let pro in obj){
-        if(typeof obj[pro] == "number"){
-            obj[pro] *=2
-        }
+for(let pro in obj){
+    if(typeof obj[pro] == "number"){
+        obj[pro] *=2
     }
 }
+}
 let menu = {
-  width: 200,
-  height: 300,
-  title: "My menu"
+width: 200,
+height: 300,
+title: "My menu"
 };
 let prt = (obj) => {
-    Object.keys(obj).forEach(key => {
-        console.log(`${key}: ${obj[key]}`);
-    });
+Object.keys(obj).forEach(key => {
+    console.log(`${key}: ${obj[key]}`);
+});
 }
 prt(menu)
 multiplyNumeric(menu);
@@ -739,9 +739,9 @@ multiplyNumeric(menu);
 prt(menu)
 // after the call
 menu = {
-  width: 400,
-  height: 600,
-  title: "My menu"
+width: 400,
+height: 600,
+title: "My menu"
 };
 
 #+end_src
@@ -758,10 +758,10 @@ menu = {
 #+begin_src js
 
 function makeUser() {
-  return {
-    name: "John",
-    ref: this
-  };
+return {
+name: "John",
+ref: this
+};
 }
 
 let user = makeUser();
@@ -776,20 +776,20 @@ console.log( user.ref.name ); // What's the result?
 
 #+begin_src js
 let calculator = (a,b) =>{
-  // ... your code ...
-    return {
+// ... your code ...
+return {
 
-    read(Newa,Newb){
-        a = Newa,
-        b = Newb
+read(Newa,Newb){
+    a = Newa,
+    b = Newb
+},
+sum(){
+    return a+b
+},
+mul(){
+    return a*b
     },
-    sum(){
-        return a+b
-    },
-    mul(){
-        return a*b
-        },
-    }
+}
 };
 let calc = calculator(0,0)
 calc.read(1,2);
@@ -804,19 +804,19 @@ console.log( calc.mul() );
 
 #+begin_src js
 let ladder = {
-  step: 0,
-  up() {
-    this.step++;
-      return this
-  },
-  down() {
-    this.step--;
-     return this
-  },
-  showStep: function() { // shows the current step
-    console.log( this.step );
-     return this
-  }
+step: 0,
+up() {
+this.step++;
+    return this
+},
+down() {
+this.step--;
+    return this
+},
+showStep: function() { // shows the current step
+console.log( this.step );
+    return this
+}
 };
 ladder.showStep().up().down().up().up().up().up().up().up().up().up().showStep()
 #+end_src
@@ -827,3 +827,92 @@ ladder.showStep().up().down().up().up().up().up().up().up().up().up().showStep()
 
 * constructor and operator new
 ** task
+#+begin_src js
+/**
+ ,* @return {Generator<number>}
+ ,*/
+var fibGenerator = function*() { // 这里的 * 表示它是生成器
+    let current = 0;
+    let next = 1;
+
+    while (true) {
+        // 1. 产出当前的值，然后函数在这里"冻结"暂停！
+        // 等待外部调用 .next() 才会继续往下执行
+        yield current;
+
+        // 2. 重新计算数值（为了下一次苏醒做准备）
+        // 利用解构赋值同时更新两个变量 (JS 的优雅写法)
+        [current, next] = [next, current + next];
+    }
+};
+
+  const gen = fibGenerator(); // 初始化，此时代码一行都没跑
+  console.log(gen.next().value); // 跑进 while，碰到 yield current(0)，暂停。输出 0
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+/**
+ ,* 使用演示：
+ ,* const gen = fibGenerator(); // 初始化，此时代码一行都没跑
+ ,* gen.next().value; // 跑进 while，碰到 yield current(0)，暂停。输出 0
+ ,* gen.next().value; // 唤醒，计算新值，进入下一次循环，碰到 yield current(1)，暂停。输出 1
+ ,*/
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+: 1
+: 2
+: 3
+: 5
+: 8
+
+
+#+begin_src js
+function* foo(index) {
+  while (index < 2) {
+    yield index;
+    index++;
+  }
+}
+
+const iterator = foo(0);
+
+console.log(iterator.next().value);
+// Expected output: 0
+
+console.log(iterator.next().value);
+// Expected output: 1
+#+end_src
+
+#+RESULTS:
+: 0
+: 1
+
+#+begin_src js
+function* countAppleSales() {
+  const saleList = [3, 7, 5];
+  for (let i = 0; i < saleList.length; i++) {
+    yield saleList[i];
+  }
+}
+const appleStore = countAppleSales(); // Generator { }
+console.log(appleStore.next()); // { value: 3, done: false }
+console.log(appleStore.next()); // { value: 7, done: false }
+console.log(appleStore.next()); // { value: 5, done: false }
+console.log(appleStore.next()); // { value: undefined, done: true }
+// for (const apple of appleStore) {
+//   // apple 就是 yield 出来的 value
+//   console.log('外部拿到:', apple);
+// }
+#+end_src
+
+#+RESULTS:
+: { value: 3, done: false }
+: { value: 7, done: false }
+: { value: 5, done: false }
+: { value: undefined, done: true }
