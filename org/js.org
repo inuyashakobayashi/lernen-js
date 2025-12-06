@@ -1,7 +1,6 @@
 #+title: My JavaScript Learning Journey
 #+author: zijian ying
-#+PROPERTY: header-args:js :results output
-
+#+PROPERTY: header-args:js :results output :exports both :mode rjsx
 * Type Conversions
 这里是我关于类型转换的笔记。
 
@@ -220,7 +219,7 @@ console.log(null === +"\n0\n")
 
 * condintional branching if and ?
 
-** task
+** task condition
 #+begin_src js
 if ("0") {
 console.log( 'Hello' );
@@ -537,7 +536,6 @@ sayHi();
 #+RESULTS:
 : Hello
 : Hello
-
 
 * arrow functions , the basic
 ** task
@@ -1121,20 +1119,13 @@ while (i < 11) {
 #+begin_src js
 
 let guestList = `Guests:
- * John
- * Pete
- * Mary
+ ,* John
+ ,* Pete
+ ,* Mary
 `;
 
 console.log(guestList); // a list of guests, multiple lines
 #+end_src
-
-#+RESULTS:
-: Guests:
-:  * John
-:  * Pete
-:  * Mary
-:
 
 #+begin_src js
 for (let char of "Hello") {
@@ -1535,3 +1526,210 @@ console.log(addTwoNumbers(l1,l2))
 :   val: 7,
 :   next: ListNode { val: 0, next: ListNode { val: 8, next: null } }
 : }
+
+#+begin_src js
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    // 1. 负数直接排除，秒杀
+    if (x < 0) return false;
+
+    // 2. 转成字符串
+    let str = x.toString();
+
+    // 3. 双指针法（不用 slice，不占额外内存）
+    let left = 0;
+    let right = str.length - 1;
+
+    while (left < right) {
+        if (str[left] !== str[right]) {
+            return false; // 只要有一对对不上，就不是回文
+        }
+        left++;
+        right--;
+    }
+
+    return true; // 全都对上了
+};
+#+end_src
+
+#+RESULTS:
+#+begin_src js
+const text = "Hi💩"; // 注意：💩 的 length 其实是 2
+
+// ❌ 惨案：老式 for 循环
+// 它会把 💩 拆成两个乱码输出
+for (let i = 0; i < text.length; i++) {
+    console.log(text[i]);
+}
+// 输出:
+// H
+// i
+//  (乱码)
+//  (乱码)
+
+// ✅ 完美：for...of
+// 它自带迭代器，能识别完整的 Emoji
+for (const char of text) {
+    console.log(char);
+}
+// 输出:
+// H
+// i
+// 💩 (完美显示)
+#+end_src
+
+#+RESULTS:
+: H
+: i
+: �
+: �
+: H
+: i
+: 💩
+
+#+begin_src js
+
+["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+  console.log(`${item} is at index ${index} in ${array}`);
+});
+#+end_src
+
+#+RESULTS:
+: Bilbo is at index 0 in Bilbo,Gandalf,Nazgul
+: Gandalf is at index 1 in Bilbo,Gandalf,Nazgul
+: Nazgul is at index 2 in Bilbo,Gandalf,Nazgul
+
+#+begin_src js
+[1, -2, 15, 2, 0, 8].sort(function(a, b) {
+  console.log( a + " <> " + b );
+  return a - b;
+});
+#+end_src
+
+#+RESULTS:
+#+begin_example
+-2 <> 1
+15 <> 1
+2 <> 1
+2 <> 15
+0 <> 2
+0 <> 1
+0 <> -2
+8 <> 1
+8 <> 15
+8 <> 2
+#+end_example
+
+#+begin_src js
+let names = 'Bilbo, Gandalf, Nazgul';
+
+let arr = names.split(', ');
+
+for (let name of arr) {
+  console.log( `A message to ${name}.` ); // A message to Bilbo  (and other names)
+}
+#+end_src
+
+#+RESULTS:
+: A message to Bilbo.
+: A message to Gandalf.
+: A message to Nazgul.
+#+begin_src js
+const camelize = (str) => str.split("-").map((w, i) => i === 0 ? w : w[0].toUpperCase() + w.slice(1)).join("");
+console.log(camelize("background-color") )
+camelize("list-style-image")
+camelize("-webkit-transition")
+#+end_src
+
+#+RESULTS:
+: backgroundColor
+#+begin_src js
+/**
+ ,* 主函数
+ ,*/
+var completePrime = function(num) {
+    const numStr = num.toString();
+    const arr = getPreSuf(numStr); // 调用外面的函数
+
+    // 这里的逻辑：检查数组里每一个元素转成数字后，是否都是质数
+    // arr.every() 是个神器，只要有一个不是，它就立马返回 false
+    return arr.every(str => isPrime(Number(str)));
+};
+
+/**
+ ,* 辅助函数 1：生成切片
+ ,* (注意：稍微改了一下让它返回数组，而不是依赖外部变量)
+ ,*/
+function getPreSuf(numStr) {
+    const result = [];
+    result.push(numStr); // 先放入自己
+
+    for(let i = 1; i < numStr.length; i++){
+        result.push(numStr.slice(0, i)); // 前缀
+        result.push(numStr.slice(-i));   // 后缀
+    }
+    return result;
+}
+
+/**
+ ,* 辅助函数 2：判断质数
+ ,*/
+function isPrime(num) {
+    if (num < 2) return false;
+    // ⚠️ 优化重点：只要循环到 开根号(num) 就行了
+    // 如果循环到 num，LeetCode 会超时 (Time Limit Exceeded)
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+#+end_src
+
+#+RESULTS:
+
+#+begin_src js
+
+function isPrime(num) {
+    // 1. 处理小于 2 的特殊情况
+    if (num < 2) return false;
+
+    // 2. 循环条件改成 i < num (或者更高效的 Math.sqrt(num))
+    // 注意：这里不能用 num.length
+    for (let i = 2; i < num; i++) {
+        // 3. 只有找到能整除的，才立刻返回 false
+        if (num % i === 0) {
+            return false;
+        }
+        // ❌ 千万不要在这里写 else { return true }
+        // 因为还没检查完后面的数字呢！
+    }
+
+    // 4. 循环跑完了都没死，说明是质数
+    return true;
+}
+    console.log(isPrime(3))
+
+    // const numStr = num.toString()
+    const arr = []
+    function getPreSuf(numStr){
+        arr.push(numStr)
+        for(let i = 1;i< numStr.length;i++){
+            arr.push(numStr.slice(0,i))
+            arr.push(numStr.slice(-i))
+        }
+        console.log(arr)
+    }
+getPreSuf("1234")
+#+end_src
+
+#+RESULTS:
+: true
+: [
+:   '1234', '1',
+:   '4',    '12',
+:   '34',   '123',
+:   '234'
+: ]

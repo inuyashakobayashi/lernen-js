@@ -1,0 +1,2337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-12-06 Sa 20:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My JavaScript Learning Journey</title>
+<meta name="author" content="zijian ying" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">My JavaScript Learning Journey</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org78d819f">1. Type Conversions</a></li>
+<li><a href="#orge82b69d">2. Math Operations</a>
+<ul>
+<li><a href="#org008235a">2.1. task the postix and prefix form -What are the final values of all variables a, b, c and d after the code below?</a></li>
+<li><a href="#org673d28a">2.2. assignment resultk -What are the values of a and x after the code below?</a></li>
+<li><a href="#org6450ed9">2.3. types conversions -What are results of these expressions?</a></li>
+<li><a href="#org70b1334">2.4. fix the addition</a></li>
+</ul>
+</li>
+<li><a href="#org5c59adc">3. comparisons</a>
+<ul>
+<li><a href="#org0bbfcfb">3.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org26c8a34">4. condintional branching if and ?</a>
+<ul>
+<li><a href="#org8a87f3e">4.1. task condition</a></li>
+</ul>
+</li>
+<li><a href="#org5348583">5. the switch statement</a>
+<ul>
+<li><a href="#orgf2789a5">5.1. task</a></li>
+</ul>
+</li>
+<li><a href="#orgaebfd6c">6. functions</a>
+<ul>
+<li><a href="#org14c33d3">6.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org3902347">7. function experssion</a></li>
+<li><a href="#orge2d4f4e">8. arrow functions , the basic</a>
+<ul>
+<li><a href="#orgf752e96">8.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org71326d6">9. javascript special</a>
+<ul>
+<li><a href="#org34b36ee">9.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org1f9ae04">10. object</a>
+<ul>
+<li><a href="#org8e56f66">10.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org2f61538">11. object refenrence and copying</a>
+<ul>
+<li><a href="#org49827e6">11.1. task</a></li>
+</ul>
+</li>
+<li><a href="#orgf26c19d">12. constructor and operator new</a>
+<ul>
+<li><a href="#org196baf1">12.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org00ff0f3">13. optional chaining ?.</a>
+<ul>
+<li><a href="#orgc055df8">13.1. task</a></li>
+</ul>
+</li>
+<li><a href="#orgd051c9a">14. Object to primitive conversion</a>
+<ul>
+<li><a href="#org298a32d">14.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org5320adb">15. Numbers</a>
+<ul>
+<li><a href="#orga859f08">15.1. task</a></li>
+</ul>
+</li>
+<li><a href="#orgbfed8b9">16. string</a>
+<ul>
+<li><a href="#org2922931">16.1. task</a></li>
+</ul>
+</li>
+<li><a href="#org86f67ea">17. Array</a>
+<ul>
+<li><a href="#orgd693171">17.1. task</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org78d819f" class="outline-2">
+<h2 id="org78d819f"><span class="section-number-2">1.</span> Type Conversions</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+这里是我关于类型转换的笔记。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">value</span> = <span style="color: #a9a1e1;">true</span>;
+console.log(<span style="color: #51afef;">typeof</span> value);
+value = String(value);
+console.log(<span style="color: #51afef;">typeof</span> value);
+</pre>
+</div>
+
+<pre class="example">
+boolean
+string
+</pre>
+</div>
+</div>
+<div id="outline-container-orge82b69d" class="outline-2">
+<h2 id="orge82b69d"><span class="section-number-2">2.</span> Math Operations</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+关于数学运算的学习，比如一元运算符。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">x</span> = 1;
+x = -x;
+console.log( x );
+</pre>
+</div>
+
+<pre class="example">
+-1
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js">
+console.log( 5 % 2 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1, the remainder of 5 divided by 2
+</span>console.log( 8 % 3 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2, the remainder of 8 divided by 3
+</span>console.log( 8 % 4 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0, the remainder of 8 divided by 4</span>
+</pre>
+</div>
+
+<pre class="example">
+1
+2
+0
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js">
+console.log( 2 ** 2 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2&#178; = 4
+</span>console.log( 2 ** 3 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2&#179; = 8
+</span>console.log( 2 ** 4 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2&#8308; = 16</span>
+</pre>
+</div>
+
+<pre class="example">
+4
+8
+16
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js">console.log( 4 ** (1/2) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2 (power of 1/2 is the same as a square root)
+</span>console.log( 8 ** (1/3) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2 (power of 1/3 is the same as a cubic root)
+</span>
+</pre>
+</div>
+
+<pre class="example">
+2
+2
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">s</span> = <span style="color: #98be65;">"my"</span> + <span style="color: #98be65;">"string"</span>;
+console.log(s); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">mystring
+</span>
+</pre>
+</div>
+
+<pre class="example">
+mystring
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">No effect on numbers
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">x</span> = 1;
+console.log( +x ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1
+</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">y</span> = -2;
+console.log( +y ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">-2
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Converts non-numbers
+</span>console.log( +<span style="color: #a9a1e1;">true</span> ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1
+</span>console.log( +<span style="color: #98be65;">""</span> );   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0
+</span>
+</pre>
+</div>
+
+<pre class="example">
+1
+-2
+1
+0
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">apples</span> = <span style="color: #98be65;">"2"</span>;
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">oranges</span> = <span style="color: #98be65;">"3"</span>;
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">both values converted to numbers before the binary plus
+</span>console.log( +apples + +oranges ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">5
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">the longer variant
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">alert( Number(apples) + Number(oranges) ); // 5
+</span>
+</pre>
+</div>
+
+<pre class="example">
+5
+</pre>
+</div>
+<div id="outline-container-org008235a" class="outline-3">
+<h3 id="org008235a"><span class="section-number-3">2.1.</span> task the postix and prefix form -What are the final values of all variables a, b, c and d after the code below?</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">a</span> = 1, <span style="color: #dcaeea;">b</span> = 1;
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">c</span> = ++a; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">?
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">d</span> = b++; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">?
+</span>console.log(c)
+console.log(a)
+console.log(b)
+console.log(d)
+</pre>
+</div>
+
+<pre class="example">
+2
+2
+2
+1
+</pre>
+</div>
+</div>
+<div id="outline-container-org673d28a" class="outline-3">
+<h3 id="org673d28a"><span class="section-number-3">2.2.</span> assignment resultk -What are the values of a and x after the code below?</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">a</span> = 2;
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">x</span> = 1 + (a *= 2);
+
+console.log(x)
+console.log(a)
+</pre>
+</div>
+
+<pre class="example">
+5
+4
+</pre>
+</div>
+</div>
+<div id="outline-container-org6450ed9" class="outline-3">
+<h3 id="org6450ed9"><span class="section-number-3">2.3.</span> types conversions -What are results of these expressions?</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+<pre class="src src-js">console.log(<span style="color: #98be65;">""</span> + 1 + 0)
+console.log(<span style="color: #98be65;">""</span> - 1 + 0)
+console.log(<span style="color: #a9a1e1;">true</span> + <span style="color: #a9a1e1;">false</span>)
+console.log(6 / <span style="color: #98be65;">"3"</span>)
+console.log(<span style="color: #98be65;">"2"</span> * <span style="color: #98be65;">"3"</span>)
+console.log(4 + 5 + <span style="color: #98be65;">"px"</span>)
+console.log(<span style="color: #98be65;">"$"</span> + 4 + 5)
+console.log(<span style="color: #98be65;">"4"</span> - 2)
+console.log(<span style="color: #98be65;">"4px"</span> - 2)
+console.log(<span style="color: #98be65;">"  -9  "</span> + 5)
+console.log(<span style="color: #98be65;">"  -9  "</span> - 5)
+console.log(<span style="color: #a9a1e1;">null</span> + 1)
+console.log(<span style="color: #a9a1e1;">undefined</span> + 1)
+console.log(<span style="color: #98be65;">" \t \n"</span> - 2)
+</pre>
+</div>
+
+<pre class="example" id="orgd01f1dc">
+10
+-1
+1
+2
+6
+9px
+$45
+2
+NaN
+  -9  5
+-14
+1
+NaN
+-2
+</pre>
+</div>
+</div>
+<div id="outline-container-org70b1334" class="outline-3">
+<h3 id="org70b1334"><span class="section-number-3">2.4.</span> fix the addition</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">a</span> = 1
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">b</span> = 2
+
+console.log(a + b); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">12
+</span>
+</pre>
+</div>
+
+<pre class="example">
+3
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c59adc" class="outline-2">
+<h2 id="org5c59adc"><span class="section-number-2">3.</span> comparisons</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-js">console.log( 2 &gt; 1 );  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">true (correct))
+</span>console.log( 2 == 1 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">false (wrong))
+</span>console.log( 2 != 1 ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">true (correct))
+</span>
+</pre>
+</div>
+
+<pre class="example">
+true
+false
+true
+</pre>
+</div>
+<div id="outline-container-org0bbfcfb" class="outline-3">
+<h3 id="org0bbfcfb"><span class="section-number-3">3.1.</span> task</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-js">console.log(5 &gt; 4)
+console.log(<span style="color: #98be65;">"apple"</span> &gt; <span style="color: #98be65;">"pineapple"</span>)
+console.log(<span style="color: #98be65;">"2"</span> &gt; <span style="color: #98be65;">"12"</span>)
+console.log(<span style="color: #a9a1e1;">undefined</span> == <span style="color: #a9a1e1;">null</span>)
+console.log(<span style="color: #a9a1e1;">undefined</span> === <span style="color: #a9a1e1;">null</span>)
+console.log(<span style="color: #a9a1e1;">null</span> == <span style="color: #98be65;">"\n0\n"</span>)
+console.log(<span style="color: #a9a1e1;">null</span> === +<span style="color: #98be65;">"\n0\n"</span>)
+
+</pre>
+</div>
+
+<pre class="example">
+true
+false
+true
+true
+false
+false
+false
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org26c8a34" class="outline-2">
+<h2 id="org26c8a34"><span class="section-number-2">4.</span> condintional branching if and ?</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org8a87f3e" class="outline-3">
+<h3 id="org8a87f3e"><span class="section-number-3">4.1.</span> task condition</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">if</span> (<span style="color: #98be65;">"0"</span>) {
+console.log( <span style="color: #98be65;">'Hello'</span> );
+}
+
+</pre>
+</div>
+
+<pre class="example">
+Hello
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">cond</span> = <span style="color: #98be65;">""</span>
+<span style="color: #51afef;">if</span>(cond == <span style="color: #98be65;">"ECMAScript"</span>){
+console.log(<span style="color: #98be65;">"RIGHT"</span>)
+}<span style="color: #51afef;">else</span>{
+console.log(<span style="color: #98be65;">"you dont konw , EMCAScript"</span>)
+}
+</pre>
+</div>
+
+<pre class="example">
+you dont konw , EMCAScript
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">a</span> = 4
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">b</span> = 1
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">result</span> = a+b &lt;4 ? <span style="color: #98be65;">'Below'</span>:<span style="color: #98be65;">'Over'</span>
+console.log(result)
+</pre>
+</div>
+
+<pre class="example">
+Over
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">login</span> = <span style="color: #98be65;">'jj'</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">message</span>;
+
+
+message = (login == <span style="color: #98be65;">'Employee'</span>) ? <span style="color: #98be65;">'Hello'</span>:(login == <span style="color: #98be65;">'Director'</span>) ? <span style="color: #98be65;">'Greetings'</span> : (login == <span style="color: #98be65;">''</span>) ? <span style="color: #98be65;">'No login'</span> : <span style="color: #98be65;">''</span>
+console.log(message)
+</pre>
+</div>
+
+<pre class="example">
+
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; 10; i++) {
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">if true, skip the remaining part of the body
+</span><span style="color: #51afef;">if</span> (i % 2 == 0) <span style="color: #51afef;">continue</span>;
+
+console.log(i); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1, then 3, 5, 7, 9
+</span>}
+
+</pre>
+</div>
+
+<pre class="example">
+1
+3
+5
+7
+9
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 3;
+
+<span style="color: #51afef;">while</span> (i) {
+console.log( i-- );
+}
+
+
+
+</pre>
+</div>
+
+<pre class="example">
+3
+2
+1
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 0;
+<span style="color: #51afef;">while</span> (++i &lt; 5) console.log( i );
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">j</span> = 0;
+<span style="color: #51afef;">while</span> (j++ &lt; 5) console.log( j );
+
+</pre>
+</div>
+
+<pre class="example">
+1
+2
+3
+4
+1
+2
+3
+4
+5
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 2; i &lt;= 10 ; i++){
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">flag</span> = (i % 2 == 0)
+<span style="color: #51afef;">if</span>(flag){
+<span style="color: #3dea43364a63;"> </span>   console.log(i)
+}
+}
+
+</pre>
+</div>
+
+<pre class="example">
+2
+4
+6
+8
+10
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; 3; i++) {
+console.log( <span style="color: #98be65;">`number ${i}!`</span> );
+}
+
+</pre>
+</div>
+
+<pre class="example">
+number 0!
+number 1!
+number 2!
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">An integer number greater than 1 is called a prime if it cannot be divided without a remainder by anything except 1 and itself.
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">In other words, n &gt; 1 is a prime if it can&#8217;t be evenly divided by anything except 1 and n.
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">For example, 5 is a prime, because it cannot be divided without a remainder by 2, 3 and 4.
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Write the code which outputs prime numbers in the interval from 2 to n.
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">For n = 10 the result will be 2,3,5,7.
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">P.S. The code should work for any n, not be hard-tuned for any fixed value.
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">n</span> = 10
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 2; i &lt;= n ; i++){
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">flag</span> = <span style="color: #a9a1e1;">true</span>
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">j</span> = 2 ; j &lt; i ; j++){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span>(i % j == 0){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   flag = <span style="color: #a9a1e1;">false</span>
+<span style="color: #3dea43364a63;"> </span>   }
+}
+<span style="color: #51afef;">if</span>(flag == <span style="color: #a9a1e1;">true</span>) console.log(i)
+}
+</pre>
+</div>
+
+<pre class="example">
+2
+3
+5
+7
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5348583" class="outline-2">
+<h2 id="org5348583"><span class="section-number-2">5.</span> the switch statement</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgf2789a5" class="outline-3">
+<h3 id="orgf2789a5"><span class="section-number-3">5.1.</span> task</h3>
+<div class="outline-text-3" id="text-5-1">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">a</span> = 2 + 2;
+
+<span style="color: #51afef;">switch</span> (a) {
+<span style="color: #51afef;">case</span> 3:
+console.log( <span style="color: #98be65;">'Too small'</span> );
+<span style="color: #51afef;">case</span> 4:
+console.log( <span style="color: #98be65;">'Exactly!'</span> );
+<span style="color: #51afef;">case</span> 5:
+console.log( <span style="color: #98be65;">'Too big'</span> );
+<span style="color: #51afef;">default</span>:
+console.log( <span style="color: #98be65;">"I don't know such values"</span> );
+}
+
+</pre>
+</div>
+
+<pre class="example">
+Exactly!
+Too big
+I don't know such values
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaebfd6c" class="outline-2">
+<h2 id="orgaebfd6c"><span class="section-number-2">6.</span> functions</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org14c33d3" class="outline-3">
+<h3 id="org14c33d3"><span class="section-number-3">6.1.</span> task</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">showMessage</span>() {
+console.log( <span style="color: #98be65;">'Hello everyone!'</span> );
+}
+showMessage()
+</pre>
+</div>
+
+<pre class="example">
+Hello everyone!
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">userName</span> = <span style="color: #98be65;">'John'</span>;
+
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">showMessage</span>() {
+userName = <span style="color: #98be65;">"Bob"</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">(1) changed the outer variable
+</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">message</span> = <span style="color: #98be65;">'Hello, '</span> + userName;
+console.log(message);
+}
+
+console.log( userName ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">John before the function call
+</span>
+showMessage();
+
+console.log( userName ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Bob, the value was modified by the function
+</span>
+</pre>
+</div>
+
+<pre class="example">
+John
+Hello, Bob
+Bob
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">userName</span> = <span style="color: #98be65;">'John'</span>;
+
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">showMessage</span>() {
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">userName</span> = <span style="color: #98be65;">"Bob"</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">declare a local variable
+</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">message</span> = <span style="color: #98be65;">'Hello, '</span> + userName; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Bob
+</span>console.log(message);
+}
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">the function will create and use its own userName
+</span>showMessage();
+
+console.log( userName ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">John, unchanged, the function did not access the outer variable
+</span>
+
+</pre>
+</div>
+
+<pre class="example">
+Hello, Bob
+John
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">function checkAge(age) {
+</span><span style="color: #5B6268;">//   </span><span style="color: #5B6268;">if (age &gt; 18) {
+</span><span style="color: #5B6268;">//     </span><span style="color: #5B6268;">return true;
+</span><span style="color: #5B6268;">//   </span><span style="color: #5B6268;">} else {
+</span><span style="color: #5B6268;">//     </span><span style="color: #5B6268;">return confirm('Did parents allow you?');
+</span><span style="color: #5B6268;">//   </span><span style="color: #5B6268;">}
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">}
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">function checkAge(age) {
+</span><span style="color: #5B6268;">//     </span><span style="color: #5B6268;">// &#36923;&#36753;&#65306;&#22914;&#26524; (age &gt; 18) &#20026;&#30495;&#65292;&#36820;&#22238; true&#65307;&#21542;&#21017;&#36820;&#22238; confirm(...) &#30340;&#32467;&#26524;
+</span><span style="color: #5B6268;">//     </span><span style="color: #5B6268;">return (age &gt; 18) ? true : confirm('Did parents allow you?');
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">}
+</span><span style="color: #51afef;">function</span> <span style="color: #c678dd;">checkAge</span>(<span style="color: #dcaeea;">age</span>){
+<span style="color: #51afef;">return</span> (age &gt; 18) || confirm(<span style="color: #98be65;">'Did parents allow you?'</span>)
+}
+console.log(checkAge(99)
+)
+</pre>
+</div>
+
+<pre class="example">
+true
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">min</span>(<span style="color: #dcaeea;">a</span>,<span style="color: #dcaeea;">b</span>){
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">result</span> = (a &lt; b) ? a: b
+<span style="color: #51afef;">return</span> result
+}
+console.log(min(1,2))
+
+console.log(min(1,3))
+console.log(min(2,8))
+console.log(min(9,2))
+</pre>
+</div>
+
+<pre class="example">
+1
+1
+2
+2
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">pow</span>(<span style="color: #dcaeea;">base</span>,<span style="color: #dcaeea;">exp</span>){
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">res</span> = 1
+<span style="color: #51afef;">for</span>(i = 0 ; i &lt; exp ; i++){
+<span style="color: #3dea43364a63;"> </span>   res *=base
+}
+<span style="color: #51afef;">return</span> res
+}
+console.log(pow(2,3))
+
+console.log(pow(5,3))
+console.log(pow(6,3))
+console.log(pow(8,3))
+
+
+
+</pre>
+</div>
+
+<pre class="example">
+8
+125
+216
+512
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3902347" class="outline-2">
+<h2 id="org3902347"><span class="section-number-2">7.</span> function experssion</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">sayHi</span>() {   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">(1) create
+</span>console.log( <span style="color: #98be65;">"Hello"</span> );
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">func</span> = sayHi;    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">(2) copy
+</span>
+func(); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Hello     // (3) run the copy (it works)!
+</span>sayHi();
+
+
+</pre>
+</div>
+
+<pre class="example">
+Hello
+Hello
+</pre>
+</div>
+</div>
+<div id="outline-container-orge2d4f4e" class="outline-2">
+<h2 id="orge2d4f4e"><span class="section-number-2">8.</span> arrow functions , the basic</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orgf752e96" class="outline-3">
+<h3 id="orgf752e96"><span class="section-number-3">8.1.</span> task</h3>
+<div class="outline-text-3" id="text-8-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Node/Bun &#19987;&#29992;&#27979;&#35797;&#29256;
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">ask</span> = (question, yes, no) =&gt; {
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#27169;&#25311; confirm&#65292;&#36825;&#37324;&#25163;&#21160;&#20889;&#27515; true &#25110; false &#26469;&#27979;&#35797;
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">result</span> = <span style="color: #a9a1e1;">true</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20551;&#35013;&#29992;&#25143;&#28857;&#20102;&#30830;&#23450;
+</span>result ? yes() : no();
+}
+
+ask(
+<span style="color: #98be65;">"Do you agree?"</span>,
+() =&gt; console.log(<span style="color: #98be65;">"You agreed."</span>),
+() =&gt; console.log(<span style="color: #98be65;">"You canceled."</span>)
+);
+</pre>
+</div>
+
+<pre class="example">
+You agreed.
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org71326d6" class="outline-2">
+<h2 id="org71326d6"><span class="section-number-2">9.</span> javascript special</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org34b36ee" class="outline-3">
+<h3 id="org34b36ee"><span class="section-number-3">9.1.</span> task</h3>
+</div>
+</div>
+<div id="outline-container-org1f9ae04" class="outline-2">
+<h2 id="org1f9ae04"><span class="section-number-2">10.</span> object</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org8e56f66" class="outline-3">
+<h3 id="org8e56f66"><span class="section-number-3">10.1.</span> task</h3>
+<div class="outline-text-3" id="text-10-1">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">makeUser</span>(<span style="color: #dcaeea;">name</span>, <span style="color: #dcaeea;">age</span>) {
+<span style="color: #51afef;">return</span> {
+name: name,
+age: age,
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">...other properties
+</span>};
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">user</span> = makeUser(<span style="color: #98be65;">"John"</span>, 30);
+console.log(user.name); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">John
+</span>
+</pre>
+</div>
+
+<pre class="example">
+John
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">obj</span> = {};
+obj.__proto__ = 5; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">assign a number
+</span>console.log(obj.__proto__); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">[object Object] - the value is an object, didn't work as intended
+</span>
+</pre>
+</div>
+
+<pre class="example">
+[Object: null prototype] {}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">user</span> = {
+name: <span style="color: #98be65;">"John"</span>,
+age: 30,
+isAdmin: <span style="color: #a9a1e1;">true</span>
+};
+
+<span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">key</span> <span style="color: #51afef;">in</span> user) {
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">keys
+</span>console.log( key );  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">name, age, isAdmin
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">values for the keys
+</span>console.log( user[key] ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">John, 30, true
+</span>}
+
+</pre>
+</div>
+
+<pre class="example">
+name
+John
+age
+30
+isAdmin
+true
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">codes</span> = {
+<span style="color: #98be65;">"49"</span>: <span style="color: #98be65;">"Germany"</span>,
+<span style="color: #98be65;">"41"</span>: <span style="color: #98be65;">"Switzerland"</span>,
+<span style="color: #98be65;">"44"</span>: <span style="color: #98be65;">"Great Britain"</span>,
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">..,
+</span><span style="color: #98be65;">"1"</span>: <span style="color: #98be65;">"USA"</span>
+};
+
+<span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">code</span> <span style="color: #51afef;">in</span> codes) {
+console.log(code); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1, 41, 44, 49
+</span>}
+
+</pre>
+</div>
+
+<pre class="example">
+1
+41
+44
+49
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">Number(...) explicitly converts to a number
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">Math.trunc is a built-in function that removes the decimal part
+</span>console.log( String(Math.trunc(Number(<span style="color: #98be65;">"49"</span>))) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">"49", same, integer property
+</span>console.log( String(Math.trunc(Number(<span style="color: #98be65;">"+49"</span>))) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">"49", not same "+49" &#8658; not integer property
+</span>console.log( String(Math.trunc(Number(<span style="color: #98be65;">"1.2"</span>))) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">"1", not same "1.2" &#8658; not integer property
+</span>
+</pre>
+</div>
+
+<pre class="example">
+49
+49
+1
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+* Write the code, one line for each action:
+
+Create an empty object user.
+Add the property name with the value John.
+Add the property surname with the value Smith.
+Change the value of the name to Pete.
+
+Remove the property name from the object.
+
+
+*/</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">obj</span> = {}
+obj.name = <span style="color: #98be65;">"John"</span>
+obj.surname = <span style="color: #98be65;">"Smith"</span>
+obj.name = <span style="color: #98be65;">"Pete"</span>
+<span style="color: #51afef;">delete</span> obj.name
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">ob</span> <span style="color: #51afef;">in</span> obj){
+console.log(obj[ob])
+}
+
+</pre>
+</div>
+
+
+<pre class="example">
+Smith
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
+</span>
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">isEmpty</span> = (obj) =&gt; {
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">ob</span> <span style="color: #51afef;">in</span> obj){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>
+}
+<span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>
+}
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">schedule</span> = {};
+
+console.log( isEmpty(schedule) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">true
+</span>
+schedule[<span style="color: #98be65;">"8:30"</span>] = <span style="color: #98be65;">"get up"</span>;
+
+console.log( isEmpty(schedule) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">false
+</span>
+</pre>
+</div>
+
+<pre class="example">
+true
+false
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">salaries</span> = {
+John: 100,
+Ann: 160,
+Pete: 130
+}
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">sum</span> = 0
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">sal</span> <span style="color: #51afef;">in</span> salaries){
+sum += salaries[sal]
+}
+console.log(sum)
+</pre>
+</div>
+
+<pre class="example">
+390
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #5B6268;">//</span><span style="color: #5B6268;">Create a function multiplyNumeric(obj) that multiplies all numeric property values of obj by 2. before the call
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">multiplyNumeric</span> = (obj) =&gt;{
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">pro</span> <span style="color: #51afef;">in</span> obj){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span>(<span style="color: #51afef;">typeof</span> obj[pro] == <span style="color: #98be65;">"number"</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   obj[pro] *=2
+<span style="color: #3dea43364a63;"> </span>   }
+}
+}
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">menu</span> = {
+width: 200,
+height: 300,
+title: <span style="color: #98be65;">"My menu"</span>
+};
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">prt</span> = (obj) =&gt; {
+Object.keys(obj).forEach(key =&gt; {
+<span style="color: #3dea43364a63;"> </span>   console.log(<span style="color: #98be65;">`${key}: ${obj[key]}`</span>);
+});
+}
+prt(menu)
+multiplyNumeric(menu);
+
+prt(menu)
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">after the call
+</span>menu = {
+width: 400,
+height: 600,
+title: <span style="color: #98be65;">"My menu"</span>
+};
+
+</pre>
+</div>
+
+<pre class="example">
+width: 200
+height: 300
+title: My menu
+width: 400
+height: 600
+title: My menu
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2f61538" class="outline-2">
+<h2 id="org2f61538"><span class="section-number-2">11.</span> object refenrence and copying</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org49827e6" class="outline-3">
+<h3 id="org49827e6"><span class="section-number-3">11.1.</span> task</h3>
+<div class="outline-text-3" id="text-11-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">makeUser</span>() {
+<span style="color: #51afef;">return</span> {
+name: <span style="color: #98be65;">"John"</span>,
+ref: <span style="color: #a9a1e1;">this</span>
+};
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">user</span> = makeUser();
+
+console.log( user.ref.name ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">What's the result?
+</span>
+
+</pre>
+</div>
+
+<pre class="example">
+undefined
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">calculator</span> = (a,b) =&gt;{
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">... your code ...
+</span><span style="color: #51afef;">return</span> {
+
+read(Newa,Newb){
+<span style="color: #3dea43364a63;"> </span>   a = Newa,
+<span style="color: #3dea43364a63;"> </span>   b = Newb
+},
+sum(){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> a+b
+},
+mul(){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> a*b
+<span style="color: #3dea43364a63;"> </span>   },
+}
+};
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">calc</span> = calculator(0,0)
+calc.read(1,2);
+console.log( calc.sum() );
+console.log( calc.mul() );
+
+</pre>
+</div>
+
+<pre class="example">
+3
+2
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">ladder</span> = {
+step: 0,
+up() {
+<span style="color: #a9a1e1;">this</span>.step++;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+},
+down() {
+<span style="color: #a9a1e1;">this</span>.step--;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+},
+<span style="color: #c678dd;">showStep</span>: <span style="color: #51afef;">function</span>() { <span style="color: #5B6268;">// </span><span style="color: #5B6268;">shows the current step
+</span>console.log( <span style="color: #a9a1e1;">this</span>.step );
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+}
+};
+ladder.showStep().up().down().up().up().up().up().up().up().up().up().showStep()
+</pre>
+</div>
+
+<pre class="example">
+0
+8
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf26c19d" class="outline-2">
+<h2 id="orgf26c19d"><span class="section-number-2">12.</span> constructor and operator new</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org196baf1" class="outline-3">
+<h3 id="org196baf1"><span class="section-number-3">12.1.</span> task</h3>
+<div class="outline-text-3" id="text-12-1">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {Generator&lt;number&gt;}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">var</span> <span style="color: #dcaeea;">fibGenerator</span> = <span style="color: #51afef;">function</span>*() { <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#36825;&#37324;&#30340; * &#34920;&#31034;&#23427;&#26159;&#29983;&#25104;&#22120;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">current</span> = 0;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">next</span> = 1;
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">while</span> (<span style="color: #a9a1e1;">true</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1. &#20135;&#20986;&#24403;&#21069;&#30340;&#20540;&#65292;&#28982;&#21518;&#20989;&#25968;&#22312;&#36825;&#37324;"&#20923;&#32467;"&#26242;&#20572;&#65281;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#31561;&#24453;&#22806;&#37096;&#35843;&#29992; .next() &#25165;&#20250;&#32487;&#32493;&#24448;&#19979;&#25191;&#34892;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">yield</span> current;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2. &#37325;&#26032;&#35745;&#31639;&#25968;&#20540;&#65288;&#20026;&#20102;&#19979;&#19968;&#27425;&#33487;&#37266;&#20570;&#20934;&#22791;&#65289;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21033;&#29992;&#35299;&#26500;&#36171;&#20540;&#21516;&#26102;&#26356;&#26032;&#20004;&#20010;&#21464;&#37327; (JS &#30340;&#20248;&#38597;&#20889;&#27861;)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   [current, next] = [next, current + next];
+<span style="color: #3dea43364a63;"> </span>   }
+};
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">gen</span> = fibGenerator(); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21021;&#22987;&#21270;&#65292;&#27492;&#26102;&#20195;&#30721;&#19968;&#34892;&#37117;&#27809;&#36305;
+</span><span style="color: #3dea43364a63;"> </span> console.log(gen.next().value); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#36305;&#36827; while&#65292;&#30896;&#21040; yield current(0)&#65292;&#26242;&#20572;&#12290;&#36755;&#20986; 0
+</span>console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* &#20351;&#29992;&#28436;&#31034;&#65306;
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* const gen = fibGenerator(); // &#21021;&#22987;&#21270;&#65292;&#27492;&#26102;&#20195;&#30721;&#19968;&#34892;&#37117;&#27809;&#36305;
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* gen.next().value; // &#36305;&#36827; while&#65292;&#30896;&#21040; yield current(0)&#65292;&#26242;&#20572;&#12290;&#36755;&#20986; 0
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* gen.next().value; // &#21796;&#37266;&#65292;&#35745;&#31639;&#26032;&#20540;&#65292;&#36827;&#20837;&#19979;&#19968;&#27425;&#24490;&#29615;&#65292;&#30896;&#21040; yield current(1)&#65292;&#26242;&#20572;&#12290;&#36755;&#20986; 1
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+</pre>
+</div>
+
+<pre class="example">
+0
+1
+1
+2
+3
+5
+8
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span>* <span style="color: #c678dd;">foo</span>(index) {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">while</span> (index &lt; 2) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">yield</span> index;
+<span style="color: #3dea43364a63;"> </span>   index++;
+<span style="color: #3dea43364a63;"> </span> }
+}
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">iterator</span> = foo(0);
+
+console.log(iterator.next().value);
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Expected output: 0
+</span>
+console.log(iterator.next().value);
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">Expected output: 1</span>
+</pre>
+</div>
+
+<pre class="example">
+0
+1
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span>* <span style="color: #c678dd;">countAppleSales</span>() {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">saleList</span> = [3, 7, 5];
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 0; i &lt; saleList.length; i++) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">yield</span> saleList[i];
+<span style="color: #3dea43364a63;"> </span> }
+}
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">appleStore</span> = countAppleSales(); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Generator { }
+</span>console.log(appleStore.next()); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">{ value: 3, done: false }
+</span>console.log(appleStore.next()); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">{ value: 7, done: false }
+</span>console.log(appleStore.next()); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">{ value: 5, done: false }
+</span>console.log(appleStore.next()); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">{ value: undefined, done: true }
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">for (const apple of appleStore) {
+</span><span style="color: #5B6268;">//   </span><span style="color: #5B6268;">// apple &#23601;&#26159; yield &#20986;&#26469;&#30340; value
+</span><span style="color: #5B6268;">//   </span><span style="color: #5B6268;">console.log('&#22806;&#37096;&#25343;&#21040;:', apple);
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+{ value: 3, done: false }
+{ value: 7, done: false }
+{ value: 5, done: false }
+{ value: undefined, done: true }
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number[]} arr
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {Function} fn
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {number[]}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">var</span> <span style="color: #dcaeea;">filter</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">arr</span>, <span style="color: #dcaeea;">fn</span>) {
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">filteredArr</span> = []
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">counter</span> = 0
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> <span style="color: #51afef;">of</span> arr){
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span>(fn(i,counter++)) filteredArr.push(i)
+<span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> filteredArr
+};
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">User</span>(<span style="color: #dcaeea;">name</span>) {
+<span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">this</span>.name = name;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">this</span>.isAdmin = <span style="color: #a9a1e1;">false</span>;
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">user</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">User</span>(<span style="color: #98be65;">"Jack"</span>);
+
+console.log(user.name); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Jack
+</span>console.log(user.isAdmin); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">false</span>
+</pre>
+</div>
+
+<pre class="example">
+Jack
+false
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">BigUser</span>() {
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #a9a1e1;">this</span>.name = <span style="color: #98be65;">"John"</span>;
+ 
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> { name: <span style="color: #98be65;">"Godzilla"</span> };  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&lt;-- returns this object
+</span>}
+
+console.log( <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">BigUser</span>().name );  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Godzilla, got that object</span>
+</pre>
+</div>
+
+<pre class="example">
+Godzilla
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">Calculator</span>(){
+<span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.read=<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">Newa</span>,<span style="color: #dcaeea;">Newb</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.a = Newa;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.b = Newb;
+<span style="color: #3dea43364a63;"> </span>  };
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.sum = <span style="color: #51afef;">function</span>(){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>.a+<span style="color: #a9a1e1;">this</span>.b
+<span style="color: #3dea43364a63;"> </span>   };
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.mul = <span style="color: #51afef;">function</span>(){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>.a*<span style="color: #a9a1e1;">this</span>.b
+<span style="color: #3dea43364a63;"> </span>   };
+}
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">calculator</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Calculator</span>();
+calculator.read(1,2);
+console.log( <span style="color: #98be65;">"Sum="</span> + calculator.sum() );
+console.log( <span style="color: #98be65;">"Mul="</span> + calculator.mul() );
+</pre>
+</div>
+
+<pre class="example">
+Sum=3
+Mul=2
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">Accumulator</span>(<span style="color: #dcaeea;">Initvalue</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.StartingValue = Initvalue
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.value = Initvalue
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.read = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">input</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.value += input
+<span style="color: #3dea43364a63;"> </span>   }
+}
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">accumulator</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Accumulator</span>(1); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">initial value 1
+</span>
+accumulator.read(3); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">adds the user-entered value
+</span>accumulator.read(8); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">adds the user-entered value
+</span>
+console.log(accumulator.value); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">shows the sum of these values</span>
+</pre>
+</div>
+
+<pre class="example">
+12
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org00ff0f3" class="outline-2">
+<h2 id="org00ff0f3"><span class="section-number-2">13.</span> optional chaining ?.</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-orgc055df8" class="outline-3">
+<h3 id="orgc055df8"><span class="section-number-3">13.1.</span> task</h3>
+<div class="outline-text-3" id="text-13-1">
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">id</span> = Symbol(<span style="color: #98be65;">"id"</span>);
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">is</span> = <span style="color: #98be65;">"id"</span>
+console.log(id); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">TypeError: Cannot convert a Symbol value to a string
+</span>
+console.log(is); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">TypeError: Cannot convert a Symbol value to a string</span>
+</pre>
+</div>
+
+<pre class="example">
+Symbol(id)
+id
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">id</span> = Symbol(<span style="color: #98be65;">"id"</span>);
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">user</span> = {
+<span style="color: #3dea43364a63;"> </span> name: <span style="color: #98be65;">"John"</span>,
+<span style="color: #3dea43364a63;"> </span> age: 30,
+<span style="color: #3dea43364a63;"> </span> [id]: 123
+};
+
+<span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">key</span> <span style="color: #51afef;">in</span> user) console.log(key); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">name, age (no symbols)
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">the direct access by the symbol works
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">console.log( "Direct: " + user[id] ); // Direct: 123</span>
+</pre>
+</div>
+
+<pre class="example">
+name
+age
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd051c9a" class="outline-2">
+<h2 id="orgd051c9a"><span class="section-number-2">14.</span> Object to primitive conversion</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-org298a32d" class="outline-3">
+<h3 id="org298a32d"><span class="section-number-3">14.1.</span> task</h3>
+<div class="outline-text-3" id="text-14-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">str</span> = <span style="color: #98be65;">"Hello"</span>;
+
+str.test = 5;
+
+console.log(str.test);
+</pre>
+</div>
+
+<pre class="example">
+undefined
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5320adb" class="outline-2">
+<h2 id="org5320adb"><span class="section-number-2">15.</span> Numbers</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-orga859f08" class="outline-3">
+<h3 id="orga859f08"><span class="section-number-3">15.1.</span> task</h3>
+<div class="outline-text-3" id="text-15-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">billion</span> = 1e9;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1 billion, literally: 1 and 9 zeroes
+</span>
+console.log( 7.3e9 );  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">7.3 billions (same as 7300000000 or 7_300_000_000)
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">-3 divides by 1 with 3 zeroes
+</span>console.log(1e-3 === 1 / 1000); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0.001
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">-6 divides by 1 with 6 zeroes
+</span>console.log(1.23e-6 === 1.23 / 1000000); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0.00000123
+</span>console.log(1234..toString(2));
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">an example with a bigger number
+</span>console.log(1234e-2 === 1234 / 100); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">12.34, decimal point moves 2 times
+</span>
+console.log(Math.trunc(2.3));
+console.log(0.1.toString(2)); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0.0001100110011001100110011001100110011001100110011001101
+</span>console.log(0.2.toString(2)); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0.001100110011001100110011001100110011001100110011001101
+</span>console.log((0.1 + 0.2).toString(2)); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0.0100110011001100110011001100110011001100110011001101
+</span>
+console.log((0.1 + 0.3+ 0.1).toString(2)); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0.0100110011001100110011001100110011001100110011001101</span>
+</pre>
+</div>
+
+
+<pre class="example" id="org9abe945">
+7300000000
+true
+true
+10011010010
+true
+2
+0.0001100110011001100110011001100110011001100110011001101
+0.001100110011001100110011001100110011001100110011001101
+0.0100110011001100110011001100110011001100110011001101
+0.1
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">a</span> = Math.random(1)
+console.log(a)
+</pre>
+</div>
+
+<pre class="example">
+0.13938862109537398
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">sum</span>(<span style="color: #dcaeea;">num1</span>,<span style="color: #dcaeea;">num2</span>){
+<span style="color: #3dea43364a63;"> </span>  <span style="color: #51afef;">return</span> num1 + num2
+}
+console.log(sum(1,3))
+console.log( 6.35.toFixed(1) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">6.3
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 0;
+<span style="color: #51afef;">while</span> (i &lt; 11) {
+<span style="color: #3dea43364a63;"> </span> i += 0.2;
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">if</span> (i &gt; 9.8 &amp;&amp; i &lt; 10.2) console.log( i );
+}
+</pre>
+</div>
+
+<pre class="example">
+4
+6.3
+9.999999999999996
+10.199999999999996
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbfed8b9" class="outline-2">
+<h2 id="orgbfed8b9"><span class="section-number-2">16.</span> string</h2>
+<div class="outline-text-2" id="text-16">
+</div>
+<div id="outline-container-org2922931" class="outline-3">
+<h3 id="org2922931"><span class="section-number-3">16.1.</span> task</h3>
+<div class="outline-text-3" id="text-16-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">guestList</span> = <span style="color: #98be65;">`Guests:
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #98be65;">* John
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #98be65;">* Pete
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #98be65;">* Mary
+`</span>;
+
+console.log(guestList); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">a list of guests, multiple lines</span>
+</pre>
+</div>
+
+<pre class="example">
+Guests:
+ * John
+ * Pete
+ * Mary
+
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #ECBE7B;">char</span> <span style="color: #51afef;">of</span> <span style="color: #98be65;">"Hello"</span>) {
+<span style="color: #3dea43364a63;"> </span> console.log(<span style="color: #ECBE7B;">char</span>); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+</span>}
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">str</span> = <span style="color: #98be65;">'Widget with id'</span>;
+
+console.log( str.indexOf(<span style="color: #98be65;">'Widget'</span>) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">0, because 'Widget' is found at the beginning
+</span>console.log( str.indexOf(<span style="color: #98be65;">'widget'</span>) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">-1, not found, the search is case-sensitive
+</span>
+console.log( str.indexOf(<span style="color: #98be65;">"id"</span>) ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1, "id" is found at the position 1 (..idget with id)</span>
+</pre>
+</div>
+
+<pre class="example">
+H
+e
+l
+l
+o
+0
+-1
+1
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">truncate</span>(<span style="color: #dcaeea;">str</span>,<span style="color: #dcaeea;">maxLength</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span>(str.length &lt;= maxLength){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> str
+<span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> str.substr(0,maxLength -1) + <span style="color: #98be65;">"..."</span>
+}
+console.log(truncate(<span style="color: #98be65;">"What I'd like to tell on this topic is:"</span>, 20) )
+console.log(truncate(<span style="color: #98be65;">"Hi everyone!"</span>, 20))
+</pre>
+</div>
+
+<pre class="example">
+What I'd like to te...
+Hi everyone!
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #3dea43364a63;"> </span><span style="color: #51afef;">function</span> <span style="color: #c678dd;">extractCurrencyValue</span>(<span style="color: #dcaeea;">str</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span><span style="color: #51afef;">return</span> relStr = +str.substr(1,str.length - 1)
+<span style="color: #3dea43364a63;"> </span>}
+console.log(extractCurrencyValue(<span style="color: #98be65;">"$120"</span>)===120)
+</pre>
+</div>
+
+<pre class="example">
+true
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #3dea43364a63;"> </span><span style="color: #51afef;">function</span> <span style="color: #c678dd;">checkSpam</span>(<span style="color: #dcaeea;">str</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span><span style="color: #51afef;">if</span>(str.toUpperCase().indexOf(<span style="color: #98be65;">"</span><span style="color: #a9a1e1; font-weight: bold;">XXX</span><span style="color: #98be65;">"</span>) !== -1 || (str.toLowerCase().indexOf(<span style="color: #98be65;">"viagra"</span>)) !== -1){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span><span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>}<span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>
+<span style="color: #3dea43364a63;"> </span>}
+console.log(checkSpam(<span style="color: #98be65;">'buy ViAgRA now'</span>) )
+console.log(checkSpam(<span style="color: #98be65;">'free xxxxx'</span>)  )
+console.log(checkSpam(<span style="color: #98be65;">"innocent rabbit"</span>) )
+</pre>
+</div>
+
+<pre class="example">
+true
+true
+false
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">ucFirst</span>(<span style="color: #dcaeea;">str</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span>    str.slice(0,1).toUpperCase() + str.slice(1)
+}
+
+console.log(ucFirst(<span style="color: #98be65;">"john"</span>) == <span style="color: #98be65;">"John"</span>)
+</pre>
+</div>
+
+<pre class="example">
+true
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org86f67ea" class="outline-2">
+<h2 id="org86f67ea"><span class="section-number-2">17.</span> Array</h2>
+<div class="outline-text-2" id="text-17">
+</div>
+<div id="outline-container-orgd693171" class="outline-3">
+<h3 id="orgd693171"><span class="section-number-3">17.1.</span> task</h3>
+<div class="outline-text-3" id="text-17-1">
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#35774;&#23450;&#19968;&#20010;&#31245;&#24494;&#22823;&#19968;&#28857;&#30340;&#25968;&#37327;&#32423;&#65292;&#35753;&#24046;&#36317;&#32905;&#30524;&#21487;&#35265;
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">COUNT</span> = 100000;
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21019;&#24314;&#20004;&#20010;&#19968;&#26679;&#30340;&#24040;&#22823;&#25968;&#32452;
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">arrForShift</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Array</span>(COUNT).fill(1);
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">arrForPop</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Array</span>(COUNT).fill(1);
+
+console.log(<span style="color: #98be65;">`=== &#24320;&#22987;&#27979;&#35797;: &#25805;&#20316; ${COUNT} &#20010;&#20803;&#32032; ===`</span>);
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">1. &#27979;&#35797; Shift (&#20174;&#22836;&#37096;&#21024;&#38500;)
+</span>console.time(<span style="color: #98be65;">'Shift &#32791;&#26102;'</span>);
+<span style="color: #51afef;">while</span> (arrForShift.length &gt; 0) {
+<span style="color: #3dea43364a63;"> </span>   arrForShift.shift();
+}
+console.timeEnd(<span style="color: #98be65;">'Shift &#32791;&#26102;'</span>);
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">2. &#27979;&#35797; Pop (&#20174;&#23614;&#37096;&#21024;&#38500;)
+</span>console.time(<span style="color: #98be65;">'Pop  &#32791;&#26102;'</span>);
+<span style="color: #51afef;">while</span> (arrForPop.length &gt; 0) {
+<span style="color: #3dea43364a63;"> </span>   arrForPop.pop();
+}
+console.timeEnd(<span style="color: #98be65;">'Pop  &#32791;&#26102;'</span>);
+</pre>
+</div>
+
+<pre class="example">
+=== 开始测试: 操作 100000 个元素 ===
+Shift 耗时: 392.253ms
+Pop  耗时: 0.815ms
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">fruits</span> = [<span style="color: #98be65;">"Apples"</span>, <span style="color: #98be65;">"Pear"</span>, <span style="color: #98be65;">"Orange"</span>];
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">push a new value into the "copy"
+</span><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">shoppingCart</span> = fruits;
+shoppingCart.push(<span style="color: #98be65;">"Banana"</span>);
+
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">what's in fruits?
+</span>console.log( fruits.length ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">?
+</span>
+
+
+</pre>
+</div>
+
+<pre class="example">
+4
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">style</span> = [<span style="color: #98be65;">"Jazz"</span>,<span style="color: #98be65;">"blue"</span>]
+console.log(style)
+style.push(<span style="color: #98be65;">"Rock-n-Roll"</span>)
+console.log(style)
+style[(style.length-1)/2] = <span style="color: #98be65;">"Classics"</span>
+console.log(style)
+console.log(style.shift())
+console.log(style)
+style.unshift(<span style="color: #98be65;">"Rag"</span>,<span style="color: #98be65;">"Reggae"</span>)
+console.log(style)
+
+</pre>
+</div>
+
+<pre class="example">
+[ 'Jazz', 'blue' ]
+[ 'Jazz', 'blue', 'Rock-n-Roll' ]
+[ 'Jazz', 'Classics', 'Rock-n-Roll' ]
+Jazz
+[ 'Classics', 'Rock-n-Roll' ]
+[ 'Rag', 'Reggae', 'Classics', 'Rock-n-Roll' ]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">arr</span> = [<span style="color: #98be65;">"a"</span>, <span style="color: #98be65;">"b"</span>];
+
+arr.push(<span style="color: #51afef;">function</span>() {
+<span style="color: #3dea43364a63;"> </span> console.log( <span style="color: #a9a1e1;">this</span> );
+});
+
+
+arr[2](); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">?
+</span>
+
+</pre>
+</div>
+
+<pre class="example">
+[ 'a', 'b', [Function (anonymous)] ]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">arr</span> = [1, -2, 3, 4, -9, 6]
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">getMaxSubSum</span>(<span style="color: #dcaeea;">arr</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">max</span> = arr[0]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">relstr</span> = []
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">range</span> = arr.length -1
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 0; i &lt;= range ;i++){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">acc</span> = 0
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">j</span> = i ; j &lt;= range ; j++){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   acc += arr[j]
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">max = (max &gt; acc) ? max:acc
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #51afef;">if</span>(max &lt;= acc){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> max = acc
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span> relstr = arr.slice(i,j+1)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> relstr
+}
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">console.log(getMaxSubSum(arr))
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">getMaxSubSum([-1, 2, 3, -9]) == 5 (the sum of highlighted items)
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">getMaxSubSum([2, -1, 2, 3, -9]) == 6
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">getMaxSubSum([-1, 2, 3, -9, 11]) == 11
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">getMaxSubSum([-2, -1, 1, 2]) == 3
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">getMaxSubSum([100, -9, 2, -3, 5]) == 100
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">getMaxSubSum([1, 2, 3]) == 6 (take all)
+</span>console.log(getMaxSubSum([-1, 2, 3, -9]))
+console.log(getMaxSubSum([2, -1, 2, 3, -9]))
+console.log(getMaxSubSum([-1, 2, 3, -9, 11]))
+console.log(getMaxSubSum([-2, -1, 1, 2]))
+console.log(getMaxSubSum([100, -9, 2, -3, 5]))
+console.log(getMaxSubSum([1, 2, 3]))
+</pre>
+</div>
+
+<pre class="example">
+[ 2, 3 ]
+[ 2, -1, 2, 3 ]
+[ 11 ]
+[ 1, 2 ]
+[ 100 ]
+[ 1, 2, 3 ]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number[]} nums
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {void}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">var</span> <span style="color: #dcaeea;">ArrayWrapper</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">nums</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1. &#26500;&#36896;&#20989;&#25968;&#65306;&#25226;&#20256;&#36827;&#26469;&#30340; nums &#23384;&#21040;&#24403;&#21069;&#23454;&#20363;(this)&#19978;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.nums = nums;
+};
+
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {number}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+ArrayWrapper.<span style="color: #a9a1e1;">prototype</span>.valueOf = <span style="color: #51afef;">function</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2. &#27714;&#21644;&#36923;&#36753;&#65306;&#24403;&#21457;&#29983; obj1 + obj2 &#26102;&#35843;&#29992;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20351;&#29992; reduce &#25226;&#25968;&#32452;&#37324;&#30340;&#25968;&#21152;&#36215;&#26469;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#22914;&#26524;&#25968;&#32452;&#26159;&#31354;&#30340;&#65292;&#36820;&#22238; 0
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>.nums.reduce((sum, num) =&gt; sum + num, 0);
+}
+
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {string}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+ArrayWrapper.<span style="color: #a9a1e1;">prototype</span>.toString = <span style="color: #51afef;">function</span>() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">3. &#36716;&#23383;&#31526;&#20018;&#36923;&#36753;&#65306;&#24403; String(obj) &#26102;&#35843;&#29992;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20599;&#25042;&#20570;&#27861;&#65306;&#30452;&#25509;&#29992; JSON.stringify&#65292;&#23427;&#20250;&#33258;&#21160;&#25226; [1,2] &#21464;&#25104;&#23383;&#31526;&#20018; "[1,2]"
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> JSON.stringify(<span style="color: #a9a1e1;">this</span>.nums);
+}
+
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* &#27979;&#35797;&#19968;&#19979;&#65306;
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">obj1</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ArrayWrapper</span>([1,2]);
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">obj2</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ArrayWrapper</span>([3,4]);
+
+console.log(obj1 + obj2); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#33258;&#21160;&#35843; valueOf -&gt; 3 + 7 = 10
+</span>console.log(String(obj1)); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#33258;&#21160;&#35843; toString -&gt; "[1,2]"</span>
+</pre>
+</div>
+
+<pre class="example">
+10
+[1,2]
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">class</span> Calculator {
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} value
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #3dea43364a63;"> </span>   constructor(value) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.result = value
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} value
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {Calculator}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #3dea43364a63;"> </span>   add(value){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.result += value
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} value
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {Calculator},*/</span>
+<span style="color: #3dea43364a63;"> </span>   subtract(value){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.result -= value
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} value
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {Calculator}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #3dea43364a63;"> </span>   multiply(value) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.result *= value
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} value
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {Calculator}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #3dea43364a63;"> </span>   divide(value) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span>(value == 0){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">throw</span> <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Error</span>(<span style="color: #98be65;">"Division by zero is not allowed"</span>);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.result /= value
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} value
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {Calculator}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #3dea43364a63;"> </span>   power(value) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #a9a1e1;">this</span>.result =Math.pow(<span style="color: #a9a1e1;">this</span>.result,value)
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {number}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">   </span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #3dea43364a63;"> </span>   getResult() {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>  <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">this</span>.result
+<span style="color: #3dea43364a63;"> </span>   }
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* Definition for singly-linked list.
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* function ListNode(val, next) {
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*     this.val = (val===undefined ? 0 : val)
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*     this.next = (next===undefined ? null : next)
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* }
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {ListNode} l1
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {ListNode} l2
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {ListNode}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">ListNode</span>(<span style="color: #dcaeea;">val</span>,<span style="color: #dcaeea;">next</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.val = (val === <span style="color: #a9a1e1;">undefined</span> ? 0 : val)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #a9a1e1;">this</span>.next = (next === <span style="color: #a9a1e1;">undefined</span> ? <span style="color: #a9a1e1;">null</span> : next)
+}
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">2,4,3
+</span><span style="color: #5B6268;">// </span><span style="color: #5B6268;">5,6,4
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">l1</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(2);       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#22836;&#33410;&#28857;&#26159; 2
+</span>l1.next = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(4);        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2 &#21518;&#38754;&#36830;&#20010; 4
+</span>l1.next.next = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(3);   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">4 &#21518;&#38754;&#36830;&#20010; 3
+</span>
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">3. &#36896; l2: [5, 6, 4]
+</span><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">l2</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(5);
+l2.next = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(6);
+l2.next.next = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(4);
+
+<span style="color: #51afef;">var</span> <span style="color: #dcaeea;">addTwoNumbers</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">l1</span>, <span style="color: #dcaeea;">l2</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1. &#36896;&#19968;&#20010;&#20551;&#30340;&#22836;&#65292;&#26041;&#20415;&#21518;&#38754;&#25346;&#33410;&#28857;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">dummy</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(0);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">current</span> = dummy; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">current &#26159;&#20010;&#25644;&#30742;&#24037;&#65292;&#36127;&#36131;&#19968;&#30452;&#24448;&#21518;&#38138;&#36335;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">carry</span> = 0;       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#36827;&#20301;
+ 
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2. &#24490;&#29615;&#26465;&#20214;&#65306;&#21482;&#35201; l1 &#36824;&#27809;&#36208;&#23436;&#65292;&#25110;&#32773; l2 &#36824;&#27809;&#36208;&#23436;&#65292;&#25110;&#32773; &#36824;&#26377;&#36827;&#20301;&#27809;&#22788;&#29702;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#23601;&#21487;&#20197;&#19968;&#30452;&#24490;&#29615; ( || &#34920;&#31034;&#8220;&#25110;&#32773;&#8221;)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">while</span> (l1 !== <span style="color: #a9a1e1;">null</span> || l2 !== <span style="color: #a9a1e1;">null</span> || carry &gt; 0) {
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">=== &#31532;&#19968;&#27493;&#65306;&#21462;&#20540; ===
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#22914;&#26524; l1 &#36824;&#26159;&#20010;&#33410;&#28857;&#65292;&#23601;&#21462;&#23427;&#30340;&#20540;&#65307;&#22914;&#26524;&#26159; null&#65292;&#23601;&#24403;&#25104; 0
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">val1</span> = (l1 !== <span style="color: #a9a1e1;">null</span>) ? l1.val : 0;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">val2</span> = (l2 !== <span style="color: #a9a1e1;">null</span>) ? l2.val : 0;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">=== &#31532;&#20108;&#27493;&#65306;&#27714;&#21644; ===
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">sum = val1 + val2 + &#20043;&#21069;&#30340;&#36827;&#20301;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">sum</span> = val1 + val2 + carry;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">=== &#31532;&#19977;&#27493;&#65306;&#31639;&#26032;&#36827;&#20301;&#21644;&#24403;&#21069;&#20301; ===
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#27604;&#22914; sum &#26159; 15&#12290;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">carry &#24212;&#35813;&#26159; 1  (&#29992; Math.floor(sum / 10))
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#24403;&#21069;&#20301;&#24212;&#35813;&#26159; 5  (&#29992; sum % 10)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   carry = Math.floor(sum / 10);
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">digit</span> = sum % 10;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">=== &#31532;&#22235;&#27493;&#65306;&#36896;&#26032;&#33410;&#28857;&#25346;&#21040; l3 &#21518;&#38754; ===
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   current.next = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">ListNode</span>(digit);
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">=== &#31532;&#20116;&#27493;&#65306;&#31227;&#21160;&#25351;&#38024; ===
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">current &#24517;&#39035;&#24448;&#21069;&#36208;&#19968;&#27493;&#65292;&#31449;&#22312;&#21018;&#36896;&#22909;&#30340;&#33410;&#28857;&#19978;&#65292;&#20934;&#22791;&#25509;&#19979;&#19968;&#20010;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   current = current.next;
+     
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">l1 &#21644; l2 &#20063;&#35201;&#24448;&#21069;&#36208;&#65288;&#21069;&#25552;&#26159;&#23427;&#20204;&#36824;&#27809;&#36208;&#21040; null&#65289;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (l1 !== <span style="color: #a9a1e1;">null</span>) l1 = l1.next;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (l2 !== <span style="color: #a9a1e1;">null</span>) l2 = l2.next;
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">3. &#36820;&#22238;&#20551;&#22836;&#21518;&#38754;&#30340;&#30495;&#38142;&#34920;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> dummy.next;
+};
+console.log(addTwoNumbers(l1,l2))
+
+</pre>
+</div>
+
+<pre class="example">
+ListNode {
+  val: 7,
+  next: ListNode { val: 0, next: ListNode { val: 8, next: null } }
+}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @param {number} x
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* @return {boolean}
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">var</span> <span style="color: #dcaeea;">isPalindrome</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">x</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1. &#36127;&#25968;&#30452;&#25509;&#25490;&#38500;&#65292;&#31186;&#26432;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (x &lt; 0) <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2. &#36716;&#25104;&#23383;&#31526;&#20018;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">str</span> = x.toString();
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">3. &#21452;&#25351;&#38024;&#27861;&#65288;&#19981;&#29992; slice&#65292;&#19981;&#21344;&#39069;&#22806;&#20869;&#23384;&#65289;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">left</span> = 0;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">right</span> = str.length - 1;
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">while</span> (left &lt; right) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (str[left] !== str[right]) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21482;&#35201;&#26377;&#19968;&#23545;&#23545;&#19981;&#19978;&#65292;&#23601;&#19981;&#26159;&#22238;&#25991;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   left++;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   right--;
+<span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20840;&#37117;&#23545;&#19978;&#20102;
+</span>};
+</pre>
+</div>
+
+<pre class="example">
+H
+i
+�
+�
+H
+i
+💩
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js">
+[<span style="color: #98be65;">"Bilbo"</span>, <span style="color: #98be65;">"Gandalf"</span>, <span style="color: #98be65;">"Nazgul"</span>].forEach((item, index, array) =&gt; {
+<span style="color: #3dea43364a63;"> </span> console.log(<span style="color: #98be65;">`${item} is at index ${index} in ${array}`</span>);
+});
+</pre>
+</div>
+
+<pre class="example">
+Bilbo is at index 0 in Bilbo,Gandalf,Nazgul
+Gandalf is at index 1 in Bilbo,Gandalf,Nazgul
+Nazgul is at index 2 in Bilbo,Gandalf,Nazgul
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-js">[1, -2, 15, 2, 0, 8].sort(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">a</span>, <span style="color: #dcaeea;">b</span>) {
+<span style="color: #3dea43364a63;"> </span> console.log( a + <span style="color: #98be65;">" &lt;&gt; "</span> + b );
+<span style="color: #3dea43364a63;"> </span> <span style="color: #51afef;">return</span> a - b;
+});
+</pre>
+</div>
+
+<pre class="example" id="org7bb5040">
+-2 &lt;&gt; 1
+15 &lt;&gt; 1
+2 &lt;&gt; 1
+2 &lt;&gt; 15
+0 &lt;&gt; 2
+0 &lt;&gt; 1
+0 &lt;&gt; -2
+8 &lt;&gt; 1
+8 &lt;&gt; 15
+8 &lt;&gt; 2
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">names</span> = <span style="color: #98be65;">'Bilbo, Gandalf, Nazgul'</span>;
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">arr</span> = names.split(<span style="color: #98be65;">', '</span>);
+
+<span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">name</span> <span style="color: #51afef;">of</span> arr) {
+<span style="color: #3dea43364a63;"> </span> console.log( <span style="color: #98be65;">`A message to ${name}.`</span> ); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">A message to Bilbo  (and other names)
+</span>}
+</pre>
+</div>
+
+<pre class="example">
+A message to Bilbo.
+A message to Gandalf.
+A message to Nazgul.
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">camelize</span> = (str) =&gt; str.split(<span style="color: #98be65;">"-"</span>).map((w, i) =&gt; i === 0 ? w : w[0].toUpperCase() + w.slice(1)).join(<span style="color: #98be65;">""</span>);
+console.log(camelize(<span style="color: #98be65;">"background-color"</span>) )
+camelize(<span style="color: #98be65;">"list-style-image"</span>)
+camelize(<span style="color: #98be65;">"-webkit-transition"</span>)
+</pre>
+</div>
+
+<pre class="example">
+backgroundColor
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* &#20027;&#20989;&#25968;
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">var</span> <span style="color: #dcaeea;">completePrime</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">num</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">numStr</span> = num.toString();
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">arr</span> = getPreSuf(numStr); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#35843;&#29992;&#22806;&#38754;&#30340;&#20989;&#25968;
+ 
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#36825;&#37324;&#30340;&#36923;&#36753;&#65306;&#26816;&#26597;&#25968;&#32452;&#37324;&#27599;&#19968;&#20010;&#20803;&#32032;&#36716;&#25104;&#25968;&#23383;&#21518;&#65292;&#26159;&#21542;&#37117;&#26159;&#36136;&#25968;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">arr.every() &#26159;&#20010;&#31070;&#22120;&#65292;&#21482;&#35201;&#26377;&#19968;&#20010;&#19981;&#26159;&#65292;&#23427;&#23601;&#31435;&#39532;&#36820;&#22238; false
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> arr.every(str =&gt; isPrime(Number(str)));
+};
+
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* &#36741;&#21161;&#20989;&#25968; 1&#65306;&#29983;&#25104;&#20999;&#29255;
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* (&#27880;&#24847;&#65306;&#31245;&#24494;&#25913;&#20102;&#19968;&#19979;&#35753;&#23427;&#36820;&#22238;&#25968;&#32452;&#65292;&#32780;&#19981;&#26159;&#20381;&#36182;&#22806;&#37096;&#21464;&#37327;)
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">getPreSuf</span>(<span style="color: #dcaeea;">numStr</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">result</span> = [];
+<span style="color: #3dea43364a63;"> </span>   result.push(numStr); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20808;&#25918;&#20837;&#33258;&#24049;
+ 
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 1; i &lt; numStr.length; i++){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   result.push(numStr.slice(0, i)); <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21069;&#32512;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   result.push(numStr.slice(-i));   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21518;&#32512;
+</span><span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> result;
+}
+
+<span style="color: #83898d;">/**
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">* &#36741;&#21161;&#20989;&#25968; 2&#65306;&#21028;&#26029;&#36136;&#25968;
+</span><span style="color: #3dea43364a63;"> </span><span style="color: #83898d;">*/</span>
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">isPrime</span>(<span style="color: #dcaeea;">num</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (num &lt; 2) <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#9888;&#65039; &#20248;&#21270;&#37325;&#28857;&#65306;&#21482;&#35201;&#24490;&#29615;&#21040; &#24320;&#26681;&#21495;(num) &#23601;&#34892;&#20102;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#22914;&#26524;&#24490;&#29615;&#21040; num&#65292;LeetCode &#20250;&#36229;&#26102; (Time Limit Exceeded)
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 2; i &lt;= Math.sqrt(num); i++) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (num % i === 0) <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+<span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>;
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-js">
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">isPrime</span>(<span style="color: #dcaeea;">num</span>) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">1. &#22788;&#29702;&#23567;&#20110; 2 &#30340;&#29305;&#27530;&#24773;&#20917;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (num &lt; 2) <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">2. &#24490;&#29615;&#26465;&#20214;&#25913;&#25104; i &lt; num (&#25110;&#32773;&#26356;&#39640;&#25928;&#30340; Math.sqrt(num))
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#27880;&#24847;&#65306;&#36825;&#37324;&#19981;&#33021;&#29992; num.length
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span> (<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 2; i &lt; num; i++) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">3. &#21482;&#26377;&#25214;&#21040;&#33021;&#25972;&#38500;&#30340;&#65292;&#25165;&#31435;&#21051;&#36820;&#22238; false
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">if</span> (num % i === 0) {
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">false</span>;
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#10060; &#21315;&#19975;&#19981;&#35201;&#22312;&#36825;&#37324;&#20889; else { return true }
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#22240;&#20026;&#36824;&#27809;&#26816;&#26597;&#23436;&#21518;&#38754;&#30340;&#25968;&#23383;&#21602;&#65281;
+</span><span style="color: #3dea43364a63;"> </span>   }
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">4. &#24490;&#29615;&#36305;&#23436;&#20102;&#37117;&#27809;&#27515;&#65292;&#35828;&#26126;&#26159;&#36136;&#25968;
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">return</span> <span style="color: #a9a1e1;">true</span>;
+}
+<span style="color: #3dea43364a63;"> </span>   console.log(isPrime(3))
+ 
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">const numStr = num.toString()
+</span><span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">arr</span> = []
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">function</span> <span style="color: #c678dd;">getPreSuf</span>(<span style="color: #dcaeea;">numStr</span>){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   arr.push(numStr)
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = 1;i&lt; numStr.length;i++){
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   arr.push(numStr.slice(0,i))
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   arr.push(numStr.slice(-i))
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   }
+<span style="color: #3dea43364a63;"> </span>   <span style="color: #3dea43364a63;"> </span>   console.log(arr)
+<span style="color: #3dea43364a63;"> </span>   }
+getPreSuf(<span style="color: #98be65;">"1234"</span>)
+</pre>
+</div>
+
+<pre class="example">
+true
+[
+  '1234', '1',
+  '4',    '12',
+  '34',   '123',
+  '234'
+]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: zijian ying</p>
+<p class="date">Created: 2025-12-06 Sa 20:06</p>
+</div>
+</body>
+</html>
